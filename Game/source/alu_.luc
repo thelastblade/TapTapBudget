@@ -1,0 +1,109 @@
+module alu_ (              // MAIN ALU MODULE THAT SELECTS WHICH OPERATION BASED ON ALUFN INPUTS
+    input alufn[6],
+    input a[16],
+    input b[16],
+    output q[16]
+  ) {
+  
+  // import alu operation modules
+  
+  alu_adder adder;
+  alu_shifter shifter;
+  alu_bool bool;
+  alu_cmp cmp;
+  alu_mul mul;
+  alu_mod mod;
+  alu_shift_add shiftadd;
+  
+  // connectors
+  
+  sig z;
+  sig v;
+  sig n;
+
+  always {
+    // adder
+    adder.alufn0 = alufn[0];
+    adder.a = a;
+    adder.b = b;
+    z = adder.z;
+    v = adder.v;
+    n = adder.n;
+    
+    // shifter
+    shifter.a = a;
+    shifter.b = b;
+    shifter.alufn = alufn[1:0];
+    
+    // boolean
+    bool.a = a;
+    bool.b = b;
+    bool.alufn = alufn;
+    
+    // compare
+    cmp.z = z;
+    cmp.v = v;
+    cmp.n = n;
+    cmp.alufn2 = alufn[2];
+    cmp.alufn1 = alufn[1];
+    
+    // multiplier
+    mul.a = a;
+    mul.b = b;    
+    
+    // modulo
+    mod.a = a;
+    mod.b = b;
+    
+    // alu_shift_12_add
+    shiftadd.a = a;
+    shiftadd.b = b;
+    shiftadd.alufn = alufn[1:0];
+    
+    case(alufn[5:0]){
+      6b000000:           // ADD
+        q = adder.q;
+      6b000001:           // SUB
+        q = adder.q;
+      6b100000:           // SHL
+        q = shifter.q;
+      6b100001:           // SHR
+        q = shifter.q;
+      6b100011:           // SRA
+        q = shifter.q;
+      6b011000:           // AND
+        q = bool.q;
+      6b011110:           // OR
+        q = bool.q;
+      6b010110:           // XOR
+        q = bool.q;
+      6b011010:           // A
+        q = bool.q;
+      6b011100:           // B
+        q = bool.q;
+      6b110011:           // CMPEQ
+        q = cmp.q;
+      6b110101:           // CMPLT
+        q = cmp.q;
+      6b110111:           // CMPLE
+        q = cmp.q;
+      6b100010:           // MUL
+        q = mul.q;
+      6b111111:           // MOD
+        q = mod.q;
+        
+      6b111000:
+        q = shiftadd.q;  // SHIFT 12 ADD
+      6b111001:
+        q = shiftadd.q;  // SHIFT 10 ADD
+      6b111010:
+        q = shiftadd.q;  // SHIFT 8 ADD
+      6b111011:
+        q = shiftadd.q;  // SHIFT 6 ADD
+        
+      default:
+        q = 0;
+    }
+    
+  }
+}

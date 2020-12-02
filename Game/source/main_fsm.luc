@@ -1,0 +1,578 @@
+module main_fsm (
+    input clk,  // clock
+    input rst,  // reset
+    input rd2[16],  // rd2
+    input next, // text input next
+    output asel[2],
+    output bsel[3],
+    output alufn[6],
+    output stu,
+    output we,
+    output ra[4],
+    output rb[4],
+    output rc[4],
+    output state_index[6]
+
+   
+    
+  ) {
+  .clk(clk) {
+    .rst(rst) {
+      fsm state = {IDLE, INITLIFE, INCREASECOUNT, SHIFTBLOCK1, SHIFTBLOCK2, SHIFTBLOCK3, SHIFTBLOCK4, RANDCOL, CHECKCOL, BRANCHCOL, RANDCOLOUR, CHECKCOLOUR, BRANCHCOLOUR, STORERED, STOREBLUE, FINDCOL, ADDCOL1, ADDCOL2, ADDCOL3, ADDCOL4, STORECOL1, STORECOL2, STORECOL3, STORECOL4, CHECKEMPTYROW, BRANCHEMPTYROW, CHECKPLAYERPOS, BRANCHSCORE, CHECKCOMBO, BRANCHCOMBO, ADDCOMBO, MULCOMBO, ADDSCORE, RESETCOMBO, MINUSHEALTH, CHECKHEALTH, BRANCHHEALTH, COUNTERMOD, CHECKMOD, BRANCHMOD, INCREASECLK, CLKHOLD, END}; // default will be IDLE
+      counter slowClock(#SIZE(1),#DIV(26));
+      counter slowClock1(#SIZE(1),#DIV(25));
+      counter slowClock2(#SIZE(1),#DIV(24));
+      counter slowClock3(#SIZE(1),#DIV(23));
+      counter slowClock4(#SIZE(1),#DIV(22));
+    }
+    edge_detector slowClockEdge(#RISE(1), #FALL(0));
+    edge_detector slowClockEdge1(#RISE(1), #FALL(0));
+    edge_detector slowClockEdge2(#RISE(1), #FALL(0));
+    edge_detector slowClockEdge3(#RISE(1), #FALL(0));
+    edge_detector slowClockEdge4(#RISE(1), #FALL(0));
+  }  
+  
+  
+  
+  always {
+  
+    // Different slow clocks control the speed of the drop
+    slowClockEdge.in = slowClock.value;
+    slowClockEdge1.in = slowClock1.value;
+    slowClockEdge2.in = slowClock2.value;
+    slowClockEdge3.in = slowClock3.value;
+    slowClockEdge4.in = slowClock4.value;
+    
+       
+    asel = 2b0;
+    bsel = 3b0;
+    stu = 0;
+    we = 0;
+    ra = 4b0;
+    rb = 4b0;
+    rc = 4b0;
+    alufn = 6b0;
+    
+    state_index = 0;
+    
+    case(state.q) {
+    
+      state.IDLE:
+        state_index = 1;
+        if (next) {
+          state.d = state.INITLIFE; 
+        }
+        else {
+            state.d = state.IDLE;
+        }
+        
+      // Initialise with 3 lives, as register default value is 0
+      state.INITLIFE:
+      state_index = 2;
+        alufn = 6b000000; //ADD
+        ra = 4b0110;
+        rc = 4b0110;
+        asel = 2b00;
+        bsel = 3b011;
+          we = b1;
+          state.d = state.INCREASECOUNT;
+      
+      // State to start the game and add 1 to the counter
+      state.INCREASECOUNT:
+        state_index = 3;
+        alufn = 6b000000; //ADD
+            ra = 4b0111;
+            rc = 4b0111;
+            asel = 2b00;
+            bsel = 3b001;
+            we = b1;
+          state.d = state.SHIFTBLOCK1;
+      
+      // Shift the first column by 2 bits
+      state.SHIFTBLOCK1:
+        state_index = 4;
+        alufn = 6b100000; //SHL
+          ra = 4b0;
+          rc = 4b0;
+          asel = 2b00;
+          bsel = 3b010;
+        //state.d = state.SHIFTBLOCK2;
+          we = b1;
+          state.d = state.SHIFTBLOCK2;
+      
+      // Shift the second column by 2 bits
+      state.SHIFTBLOCK2:
+      state_index = 5;
+        alufn = 6b100000; //SHL
+            ra = 4b0001;
+            rc = 4b0001;
+            asel = 2b00;
+            bsel = 3b010;
+            we = b1;
+            state.d = state.SHIFTBLOCK3;
+
+      // Shift the third column by 2 bits
+      state.SHIFTBLOCK3:
+        state_index = 6; 
+        alufn = 6b100000; //SHL
+          ra = 4b0010;
+          rc = 4b0010;
+          asel = 2b00;
+          bsel = 3b010;
+              we = b1;
+              state.d = state.SHIFTBLOCK4;
+
+      // Shift the fourth column by 2 bits
+      state.SHIFTBLOCK4:
+        state_index = 7;
+        alufn = 6b100000; //SHL
+            ra = 4b0011;
+            rc = 4b0011;
+            asel = 2b00;
+            bsel = 3b010;
+            we = b1;
+            state.d = state.RANDCOLOUR;
+
+      // Get randgen output from A
+      state.RANDCOLOUR:
+        state_index = 11;
+        alufn = 6b011010; //A
+        asel = b11;
+        rc = 4b1010;
+        we = b1;
+        state.d = state.RANDCOL;
+
+      // Get randgen output from B
+      state.RANDCOL:
+        state_index = 8;
+        alufn = 6b011100; //B
+            rc = 4b1001;
+            bsel = b110;
+            we = b1;
+            state.d = state.CHECKCOL;
+
+
+      state.CHECKCOL:
+        state_index = 9;
+        alufn = 6b110111; //CMPLE
+            ra = 4b1001;
+            rc = 4b1011;
+            asel = 2b00;
+            bsel = 3b011;
+            we = b1;
+            state.d = state.BRANCHCOL;
+
+      state.BRANCHCOL:
+        state_index = 10;
+        rb = 4b1011;
+        
+          if (rd2 == 16b1) {
+            state.d = state.BRANCHCOLOUR;
+          }
+          else {
+            state.d = state.STORECOL1;
+          }
+
+        
+      state.BRANCHCOLOUR:
+        state_index = 12;
+        rb = 4b1010;
+        
+          if (rd2 == 1) {  // 50% catch for red or blue
+            state.d = state.STOREBLUE;
+        } 
+          else {
+            state.d = state.STORERED;
+          }
+
+        
+       
+        
+      state.STORERED:
+        state_index = 13;
+        alufn = 6b011100; //'B'
+            bsel = 3b010; // Choose the value 01
+            rc = hA;
+            we = b1;
+            state.d = state.FINDCOL;
+
+       
+              
+      state.STOREBLUE:
+        state_index = 14;
+        alufn = 6b011100; //'B'
+            bsel = 3b001; // Choose the value 10
+            rc = hA;
+            we = b1;
+            state.d = state.FINDCOL;
+
+        
+      
+      // Find the col to branch to
+      state.FINDCOL:
+        state_index = 15;
+        rb = h9;
+        we = 0;
+          if (rd2 == 16b0) {
+            state.d = state.ADDCOL1;
+          }
+          else if (rd2 == 16b1) {
+            state.d = state.ADDCOL2;
+          }
+          else if (rd2 == 16b10) {
+            state.d = state.ADDCOL3;
+          }
+        else if (rd2 == 16b11) {
+            state.d = state.ADDCOL4;
+          }
+      
+
+      state.ADDCOL1:
+        state_index = 16;
+        alufn = 6b000000; // ADD
+          asel = 2b00;
+          bsel = 3b000;
+          rb = hA;
+          rc = h0;
+          ra = h0;
+          we = b1;
+          state.d = state.STORECOL1;
+      
+      state.ADDCOL2:
+        state_index = 17;
+        alufn = 6b000000; // ADD
+          asel = 2b0;
+          bsel = 3b000;
+          rb = hA;
+          rc = h1;
+          ra = h1;
+          we = b1;
+          state.d = state.STORECOL1;
+
+        
+      state.ADDCOL3:
+        state_index = 18;
+        alufn = 6b000000; // ADD
+          asel = 2b0;
+          bsel = 3b000;
+          rb = hA;
+          rc = h2;
+          ra = h2;
+          we = b1;
+          state.d = state.STORECOL1;
+        
+      state.ADDCOL4:
+        state_index = 19;
+        alufn = 6b000000; // ADD
+          asel = 2b0;
+          bsel = 3b000;
+          rb = hA;
+          rc = h3;
+          ra = h3;
+          we = b1;
+          state.d = state.STORECOL1;
+
+        
+      // Store the [6:7] of row 1 as the [6:7] of the temp reg
+      state.STORECOL1:
+        state_index = 20;
+        alufn = 6b111000; // SHAD12
+          asel = 2b00;
+          bsel = 3b100;  // select all 0s as the input
+          ra = 4b0000;  // select the address of col 0
+          rc = 4b1000;  // store in Reg 8 which is the LastRow storage reg
+          we = 1;
+          state.d = state.STORECOL2;
+
+
+      state.STORECOL2:
+        state_index = 21;
+        alufn = 6b111001; // SHAD10
+          asel = 2b00;
+          bsel = 3b000;  // select all 0s as the input
+          ra = 4b0001;  // select the address of col 1
+          rb = 4b1000;  // select the contents of the LastRow reg
+          rc = 4b1000;  // store in Reg 8 which is the LastRow storage reg
+          we = 1;
+          state.d = state.STORECOL3;
+
+
+      state.STORECOL3:
+        state_index = 22;
+        alufn = 6b111010; // SHAD8
+          asel = 2b00;
+          bsel = 3b000;
+          ra = 4b0010;  // select the address of col 2
+          rb = 4b1000;  // select the contents of the LastRow reg
+          rc = 4b1000;  // store in Reg 8 which is the LastRow storage reg
+          we = 1;
+          state.d = state.STORECOL4;
+
+
+      state.STORECOL4:
+        state_index = 23;
+        alufn = 6b111011; // SHAD6
+          asel = 2b00;
+          bsel = 3b000;
+          ra = 4b0011;  // select the address of col 3
+          rb = 4b1000;  // select the contents of the LastRow reg
+          rc = 4b1000;  // store in Reg 8 which is the LastRow storage reg
+          we = 1;
+          state.d = state.CHECKEMPTYROW;
+
+
+      state.CHECKEMPTYROW:
+        state_index = 24;
+        alufn = 6b110011; //COMPEQ
+            ra = 4b1000; // Check Reg 8 
+            rc = 4b1011; // Output in 0xB
+            asel = 2b00;
+            bsel = 3b100; // compare with 0
+            we = b1;
+            state.d = state.BRANCHEMPTYROW;
+
+
+      state.BRANCHEMPTYROW:
+        state_index = 25;
+        rb = 4b1011; // Check for output in 0xB
+        we = 0;
+          if (rd2 == 16b1) {
+            state.d = state.CLKHOLD;
+          } 
+          else {
+            state.d = state.CHECKPLAYERPOS;
+          }
+
+
+      state.CHECKPLAYERPOS:
+        state_index = 26;
+        alufn = 6b110011; //COMPEQ
+            ra = 4b1000; // Last Row
+            rc = 4b1100; // 0xC
+            asel = 2b00;
+            bsel = 3b101; // Player input
+            we = 1;
+            state.d = state.BRANCHSCORE;
+
+
+      state.BRANCHSCORE:
+        state_index = 27;
+        rb = 4b1100; // 0xC
+        we = 0;
+          if (rd2 == 16b1) {
+            state.d = state.CHECKCOMBO;
+          }
+          else {
+          state.d = state.RESETCOMBO;
+          }
+
+
+      state.CHECKCOMBO:
+        state_index = 28;
+        alufn = 6b110101; //CMPLT
+            ra = 4b0100; // Combo Reg
+            rc = 4b1100; // 0xC
+            asel = 2b00; 
+            bsel = 3b011;
+            we = 1;
+            state.d = state.BRANCHCOMBO;
+        
+      state.BRANCHCOMBO:
+        state_index = 29;
+        rb = 4b1100; // 0xC
+        we = 0;
+          if (rd2 == 0) {
+            state.d = state.MULCOMBO;
+          } else {
+            state.d = state.ADDCOMBO;
+          }
+
+          
+
+      state.ADDCOMBO:
+        state_index = 30;
+        alufn = 6b000000; //ADD
+            ra = 4b0100;
+            rc = 4b0100;
+            asel = 2b00;
+            bsel = 3b001;
+            we = b1;
+            state.d = state.MULCOMBO;
+
+
+      state.MULCOMBO:
+        state_index = 31;
+        alufn = 6b100010; //MUL
+            ra = 4b0100;
+            rc = 4b1101;
+            asel = 2b00;
+            bsel = 3b011;
+            we = 1;
+            state.d = state.ADDSCORE;
+
+
+      state.ADDSCORE:
+        state_index = 32;
+        alufn = 6b000000; //ADD
+            ra = 4b1101;
+            rb =  4b0101;
+            rc = 4b0101;
+            asel = 2b00;
+            bsel = 3b000;
+            we = 1;
+            state.d = state.CLKHOLD;
+
+
+      state.RESETCOMBO:
+        state_index = 33;
+        alufn = 6b000000; //ADD
+            ra = 4b0000;
+            rc = 4b0100;
+            asel = 2b10;
+            bsel = 3b100;
+            we = 1;
+            state.d = state.MINUSHEALTH;
+
+      state.MINUSHEALTH:
+        state_index = 34;
+        alufn = 6b000001; //SUB
+            ra = 4b0110;
+            rc = 4b0110;
+            asel = 2b00;
+            bsel = 3b001;
+            we = 1;
+            state.d = state.CHECKHEALTH;
+
+
+      // Check if player health is 0 and reuturn 1 if it is
+      state.CHECKHEALTH:
+        state_index = 35;
+        alufn = 6b110011; //CMPEQ
+            ra = 4b0110;
+            rc = 4b1101;
+            asel = 2b00;
+            bsel = 3b100;
+            we = 1;
+            state.d = state.BRANCHHEALTH;
+
+
+      state.BRANCHHEALTH:
+        state_index = 36;
+        rb = 4b1101;
+        we = 0;
+          if (rd2 == 16b1) {
+            state.d = state.END;
+          } 
+          else {
+                state.d = state.CLKHOLD;
+          }
+
+
+
+      // Check if the counter is a multiple of 20
+      //state.COUNTERMOD:
+        //state_index = 37;
+        //alufn = 6b111111; //MOD
+            //ra = 4b0111;
+            //rc = 4b1110;
+            //asel = 2b00;
+            //bsel = 3b111;
+            //we = b1;
+            //state.d = state.CHECKMOD;
+
+      // Check if the temp reg from mod 20 is equals to 0
+      //state.CHECKMOD:
+        //state_index =38;
+        //alufn = 6b110011; //CMPEQ
+            //ra = 4b1110;
+            //rc = 4b1101;
+            //asel = 2b00;
+            //bsel = 3b100;
+            //we = b1;
+            //state.d = state.BRANCHMOD;
+    
+      // Read if the temp reg is 1 or 0, if 1 then branch to increase clk
+      //state.BRANCHMOD:
+        //state_index = 39;
+        //rb = 4b1101;
+        //we =0;
+        //if (next) {
+          //if (rd2 > 0) {
+            //    state.d = state.INCREASECLK;
+          //} else {
+            //    state.d = state.CLKHOLD;
+          //}
+        //}
+        //else state.d = state.BRANCHMOD;
+
+
+
+      // Increase the slow clk by increasing the value in the clock speed counter reg
+      //state.INCREASECLK:
+        //state_index = 40;
+        //alufn = b000000; // ADD
+        //ra = hF;
+        //rc = hF;
+        //asel = b00;
+        //bsel = b001;
+        //if (next) {
+          //we = 1;
+          //state.d = state.CLKHOLD;
+        //}
+        //else state.d = state.INCREASECLK;
+
+      // Wait in this state for the clock edge depending on the 
+      state.CLKHOLD:
+        rb = b0111; // Get data from the clock speed counter reg
+        if (rd2 < d20) {
+          if (slowClockEdge.out) {
+            state.d = state.INCREASECOUNT;
+          }
+          else {
+            state.d = state.CLKHOLD;
+          }
+        }
+        else if (rd2 < d160) {
+          if (slowClockEdge1.out) {
+            state.d = state.INCREASECOUNT;
+          }
+          else {
+            state.d = state.CLKHOLD;
+          }
+        }
+        else if (rd2 < d500) {
+          if (slowClockEdge2.out) {
+            state.d = state.INCREASECOUNT;
+          }
+          else {
+            state.d = state.CLKHOLD;
+          }
+        }
+        else if (rd2 < d1500) {
+          if (slowClockEdge3.out) {
+            state.d = state.INCREASECOUNT;
+          }
+          else {
+            state.d = state.CLKHOLD;
+          }
+        }
+        else {
+          if (slowClockEdge4.out) {
+            state.d = state.INCREASECOUNT;
+          }
+          else {
+            state.d = state.CLKHOLD;
+          }
+        }
+
+
+      // Finish game
+      state.END:
+        state_index = 42;
+
+        state.d = state.END;
+      
+      default:
+        state.d = state.IDLE;
+  }
+}

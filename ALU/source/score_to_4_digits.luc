@@ -1,0 +1,30 @@
+module score_to_4_digits (
+    input score[16],
+    output digits[4][4] // each digit output is 4 bits, represents the digit in binary
+  ) {
+  alu_mod mod[4];  
+
+  always {
+    
+    //1st digit
+    mod.a[0] = score;
+    mod.b[0] = d10;
+    digits[0] = mod.q[0];
+    
+    //2nd digit
+    mod.a[1] = score;
+    mod.b[1] = d100;
+    digits[1] = (mod.q[1] - mod.q[0])/d10;
+    
+    //3rd digit
+    mod.a[2] = score;
+    mod.b[2] = d1000;
+    digits[2] = (mod.q[2] - mod.q[1])/d100;
+    
+    //4th digit
+    mod.a[3] = score;
+    mod.b[3] = d10000;
+    digits[3] = (mod.q[3] - mod.q[2])/d1000;
+    
+  }
+}

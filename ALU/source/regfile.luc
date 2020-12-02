@@ -1,0 +1,40 @@
+module regfile (
+    input clk,  // clock
+    input rst,  // reset
+    input read_address_1[16],
+    input read_address_2[16],
+    output read_data_1[16],
+    output read_data_2[16],
+    output life_data[16],
+    output score_data[16],
+    output combo_data[16],
+    output cycle_counter_data[16],
+    output col_1[16],
+    output col_2[16],
+    output col_3[16],
+    output col_4[16],
+    input write_address[16],
+    input write_data[16],
+    input write_enable
+  ) {
+  dff registers[16][16] (.clk(clk), .rst(rst));
+  always {
+    // always read
+    read_data_1 = registers.q[read_address_1];
+    read_data_2 = registers.q[read_address_2];
+    life_data = registers.q[16b110];
+    score_data = registers.q[16b101];
+    combo_data = registers.q[16b0];
+    cycle_counter_data = registers.q[16b111];
+    col_1 = registers.q[16b0];
+    col_2 = registers.q[16b1];
+    col_3 = registers.q[16b10];
+    col_4 = registers.q[16b11];
+    
+    
+    // check if write_enable
+    if (write_enable) {
+      registers.d[write_address] = write_data;
+    }
+  }
+}

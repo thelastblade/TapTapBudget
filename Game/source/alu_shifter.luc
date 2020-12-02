@@ -1,0 +1,44 @@
+module alu_shifter (  // USES A MUX TO SELECT BETWEEN SHIFTLEFT AND SHIFTRIGHT
+    input alufn[2],
+    input a[16],
+    input b[16],
+    output q[16]
+    
+  ) {
+  alu_shiftleft shiftleft;
+  alu_shiftright shiftright;
+
+  always {
+    shiftright.a = 0;
+    shiftright.b = 0;
+    shiftright.alufn1 = 0;
+    shiftleft.a = 0;
+    shiftleft.b = 0;
+        
+    case(alufn[0]){       // the mux takes in alufn0 as selector
+      b0:  // SHL
+        shiftleft.a = a;
+        shiftleft.b = b[3:0];
+        if (b >= b10000) {  // if shift left by more than 15 bits, output is all 0s
+          q = 16b0;
+        }        
+        else {q = shiftleft.q;}
+          
+      b1:  // SHR and SRA
+        shiftright.alufn1 = alufn[1];
+        shiftright.a = a;
+        shiftright.b = b[3:0];
+        if (b >= b10000) {  
+          if (alufn[1] == 0) { // if shift right by more than 15 bits, output is all 0s
+            q = 16b0;
+          }
+          else {q = 16x{a[15]};}  // if shift right arithmetic by more than 15 bits, output is all a[15]
+        } else {q = shiftright.q;}
+        
+      default: // default case is SHL
+        shiftleft.a = a;
+        shiftleft.b = b[3:0];
+        q = shiftleft.q;
+    }
+  }
+}

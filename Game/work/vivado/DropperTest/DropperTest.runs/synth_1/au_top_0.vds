@@ -1,0 +1,532 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed Dec  2 18:55:12 2020
+# Process ID: 1092
+# Current directory: C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.runs/synth_1
+# Command line: vivado.exe -log au_top_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
+# Log file: C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.runs/synth_1/au_top_0.vds
+# Journal file: C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source au_top_0.tcl -notrace
+Command: synth_design -top au_top_0 -part xc7a35tftg256-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tftg256-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 20240
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1013.156 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6157] synthesizing module 'bin_to_led_2' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/bin_to_led_2.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/bin_to_led_2.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'bin_to_led_2' (1#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/bin_to_led_2.v:7]
+INFO: [Synth 8-6157] synthesizing module 'score_to_4_digits_1' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/score_to_4_digits_1.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_mod_13' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_mod_13.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_mul_18' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_mul_18.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_adder_14' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_adder_14.v:7]
+INFO: [Synth 8-6157] synthesizing module 'full_adder_33' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/full_adder_33.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'full_adder_33' (2#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/full_adder_33.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_adder_XB_34' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_adder_XB_34.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_adder_XB_34' (3#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_adder_XB_34.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_adder_14' (4#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_adder_14.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shifter_15' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shifter_15.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shiftleft_35' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftleft_35.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftleft_35.v:23]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftleft_35.v:36]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftleft_35.v:49]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftleft_35.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shiftleft_35' (5#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftleft_35.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shiftright_36' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftright_36.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shiftright_mux_37' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftright_mux_37.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftright_mux_37.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shiftright_mux_37' (6#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftright_mux_37.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftright_36.v:38]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftright_36.v:51]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftright_36.v:64]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftright_36.v:77]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shiftright_36' (7#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shiftright_36.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shifter_15.v:43]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shifter_15' (8#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shifter_15.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_mul_18' (9#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_mul_18.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_mod_13' (10#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_mod_13.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'score_to_4_digits_1' (11#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/score_to_4_digits_1.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu__3' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu__3.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_bool_16' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_bool_16.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_bool_16' (12#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_bool_16.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_cmp_17' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_cmp_17.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_cmp_17.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'alu_cmp_17' (13#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_cmp_17.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shift_add_19' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shift_add_19.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shift_add_19.v:66]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shift_add_19' (14#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shift_add_19.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu__3' (15#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu__3.v:7]
+INFO: [Synth 8-6157] synthesizing module 'basket_fsm_4' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/basket_fsm_4.v:7]
+	Parameter ABLUE_basket bound to: 3'b000 
+	Parameter ARED_basket bound to: 3'b001 
+	Parameter BBLUE_basket bound to: 3'b010 
+	Parameter BRED_basket bound to: 3'b011 
+	Parameter CBLUE_basket bound to: 3'b100 
+	Parameter CRED_basket bound to: 3'b101 
+	Parameter DBLUE_basket bound to: 3'b110 
+	Parameter DRED_basket bound to: 3'b111 
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/basket_fsm_4.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'basket_fsm_4' (16#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/basket_fsm_4.v:7]
+INFO: [Synth 8-6157] synthesizing module 'regfile_5' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/regfile_5.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'regfile_5' (17#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/regfile_5.v:7]
+INFO: [Synth 8-6157] synthesizing module 'main_fsm_6' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/main_fsm_6.v:7]
+	Parameter IDLE_state bound to: 6'b000000 
+	Parameter INITLIFE_state bound to: 6'b000001 
+	Parameter INCREASECOUNT_state bound to: 6'b000010 
+	Parameter SHIFTBLOCK1_state bound to: 6'b000011 
+	Parameter SHIFTBLOCK2_state bound to: 6'b000100 
+	Parameter SHIFTBLOCK3_state bound to: 6'b000101 
+	Parameter SHIFTBLOCK4_state bound to: 6'b000110 
+	Parameter RANDCOL_state bound to: 6'b000111 
+	Parameter CHECKCOL_state bound to: 6'b001000 
+	Parameter BRANCHCOL_state bound to: 6'b001001 
+	Parameter RANDCOLOUR_state bound to: 6'b001010 
+	Parameter CHECKCOLOUR_state bound to: 6'b001011 
+	Parameter BRANCHCOLOUR_state bound to: 6'b001100 
+	Parameter STORERED_state bound to: 6'b001101 
+	Parameter STOREBLUE_state bound to: 6'b001110 
+	Parameter FINDCOL_state bound to: 6'b001111 
+	Parameter ADDCOL1_state bound to: 6'b010000 
+	Parameter ADDCOL2_state bound to: 6'b010001 
+	Parameter ADDCOL3_state bound to: 6'b010010 
+	Parameter ADDCOL4_state bound to: 6'b010011 
+	Parameter STORECOL1_state bound to: 6'b010100 
+	Parameter STORECOL2_state bound to: 6'b010101 
+	Parameter STORECOL3_state bound to: 6'b010110 
+	Parameter STORECOL4_state bound to: 6'b010111 
+	Parameter CHECKEMPTYROW_state bound to: 6'b011000 
+	Parameter BRANCHEMPTYROW_state bound to: 6'b011001 
+	Parameter CHECKPLAYERPOS_state bound to: 6'b011010 
+	Parameter BRANCHSCORE_state bound to: 6'b011011 
+	Parameter CHECKCOMBO_state bound to: 6'b011100 
+	Parameter BRANCHCOMBO_state bound to: 6'b011101 
+	Parameter ADDCOMBO_state bound to: 6'b011110 
+	Parameter MULCOMBO_state bound to: 6'b011111 
+	Parameter ADDSCORE_state bound to: 6'b100000 
+	Parameter RESETCOMBO_state bound to: 6'b100001 
+	Parameter MINUSHEALTH_state bound to: 6'b100010 
+	Parameter CHECKHEALTH_state bound to: 6'b100011 
+	Parameter BRANCHHEALTH_state bound to: 6'b100100 
+	Parameter COUNTERMOD_state bound to: 6'b100101 
+	Parameter CHECKMOD_state bound to: 6'b100110 
+	Parameter BRANCHMOD_state bound to: 6'b100111 
+	Parameter INCREASECLK_state bound to: 6'b101000 
+	Parameter CLKHOLD_state bound to: 6'b101001 
+	Parameter END_state bound to: 6'b101010 
+INFO: [Synth 8-6157] synthesizing module 'counter_20' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_20.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11010 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 27'b011111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_20' (18#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_20.v:14]
+INFO: [Synth 8-6157] synthesizing module 'counter_21' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_21.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11001 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 26'b01111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_21' (19#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_21.v:14]
+INFO: [Synth 8-6157] synthesizing module 'counter_22' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_22.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11000 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 25'b0111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_22' (20#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_22.v:14]
+INFO: [Synth 8-6157] synthesizing module 'counter_23' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_23.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b10111 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 24'b011111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_23' (21#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_23.v:14]
+INFO: [Synth 8-6157] synthesizing module 'counter_24' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_24.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b10110 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 23'b01111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_24' (22#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_24.v:14]
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_12' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/edge_detector_12.v:12]
+	Parameter RISE bound to: 1'b1 
+	Parameter FALL bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_12' (23#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/edge_detector_12.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'main_fsm_6' (24#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/main_fsm_6.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rand_gen_7' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:11]
+	Parameter SEED bound to: 128'b10000100001100100011001101010010001110100110000100111001011001100100001000111011011000100010010101100010010110010010110001100010 
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_25' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/edge_detector_25.v:12]
+	Parameter RISE bound to: 1'b1 
+	Parameter FALL bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_25' (25#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/edge_detector_25.v:12]
+INFO: [Synth 8-6157] synthesizing module 'counter_26' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_26.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b10101 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 22'b0111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_26' (26#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_26.v:14]
+INFO: [Synth 8-6157] synthesizing module 'pn_gen_27' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/pn_gen_27.v:11]
+	Parameter SEED bound to: 128'b10000100001100100011001101010010001110100110000100111001011001100100001000111011011000100010010101100010010110010010110001100010 
+INFO: [Synth 8-6155] done synthesizing module 'pn_gen_27' (27#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/pn_gen_27.v:11]
+WARNING: [Synth 8-151] case item 4'b1000 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:100]
+WARNING: [Synth 8-151] case item 4'b1001 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:103]
+WARNING: [Synth 8-151] case item 4'b1010 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:106]
+WARNING: [Synth 8-151] case item 4'b1011 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:109]
+WARNING: [Synth 8-151] case item 4'b1100 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:112]
+WARNING: [Synth 8-151] case item 4'b1101 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:115]
+WARNING: [Synth 8-151] case item 4'b1110 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:118]
+WARNING: [Synth 8-151] case item 4'b1111 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:121]
+INFO: [Synth 8-6155] done synthesizing module 'rand_gen_7' (28#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen_7.v:11]
+INFO: [Synth 8-6157] synthesizing module 'rand_gen2_8' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:11]
+	Parameter SEED bound to: 128'b10000100001100100011001101010010001110100110000100111001011001100100001000111011011000100010010101100010010110010010110001100001 
+INFO: [Synth 8-6157] synthesizing module 'counter_28' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_28.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 4'b1111 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 16'b0111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_28' (29#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_28.v:14]
+WARNING: [Synth 8-151] case item 4'b1000 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:100]
+WARNING: [Synth 8-151] case item 4'b1001 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:103]
+WARNING: [Synth 8-151] case item 4'b1010 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:106]
+WARNING: [Synth 8-151] case item 4'b1011 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:109]
+WARNING: [Synth 8-151] case item 4'b1100 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:112]
+WARNING: [Synth 8-151] case item 4'b1101 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:115]
+WARNING: [Synth 8-151] case item 4'b1110 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:118]
+WARNING: [Synth 8-151] case item 4'b1111 is unreachable [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:121]
+INFO: [Synth 8-6155] done synthesizing module 'rand_gen2_8' (30#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/rand_gen2_8.v:11]
+INFO: [Synth 8-6157] synthesizing module 'multi_seven_seg_9' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/multi_seven_seg_9.v:12]
+	Parameter DIGITS bound to: 3'b100 
+	Parameter DIV bound to: 5'b10000 
+	Parameter DIGIT_BITS bound to: 2'b10 
+INFO: [Synth 8-6157] synthesizing module 'counter_29' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_29.v:14]
+	Parameter SIZE bound to: 2'b10 
+	Parameter DIV bound to: 5'b10000 
+	Parameter TOP bound to: 4'b0011 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 20'b00111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_29' (31#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/counter_29.v:14]
+INFO: [Synth 8-6157] synthesizing module 'seven_segment_30' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/seven_segment_30.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'seven_segment_30' (32#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/seven_segment_30.v:7]
+INFO: [Synth 8-6157] synthesizing module 'decoder_31' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/decoder_31.v:11]
+	Parameter WIDTH bound to: 2'b10 
+INFO: [Synth 8-6155] done synthesizing module 'decoder_31' (33#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/decoder_31.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'multi_seven_seg_9' (34#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/multi_seven_seg_9.v:12]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_10' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/reset_conditioner_10.v:11]
+	Parameter STAGES bound to: 3'b100 
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_10' (35#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/reset_conditioner_10.v:11]
+INFO: [Synth 8-6157] synthesizing module 'button_conditioner_11' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/button_conditioner_11.v:13]
+	Parameter CLK_FREQ bound to: 26'b10111110101111000010000000 
+	Parameter MIN_DELAY bound to: 5'b10100 
+	Parameter NUM_SYNC bound to: 2'b10 
+INFO: [Synth 8-6157] synthesizing module 'pipeline_32' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/pipeline_32.v:11]
+	Parameter DEPTH bound to: 2'b10 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_32' (36#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/pipeline_32.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'button_conditioner_11' (37#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/button_conditioner_11.v:13]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/au_top_0.v:294]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/au_top_0.v:312]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (38#1) [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/au_top_0.v:7]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1013.156 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1013.156 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1013.156 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.307 . Memory (MB): peak = 1013.156 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Kaye/Desktop/DropperTest/work/constraint/custom.xdc]
+Finished Parsing XDC File [C:/Users/Kaye/Desktop/DropperTest/work/constraint/custom.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Kaye/Desktop/DropperTest/work/constraint/custom.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/Kaye/Desktop/DropperTest/constraint/customised.xdc]
+Finished Parsing XDC File [C:/Users/Kaye/Desktop/DropperTest/constraint/customised.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Kaye/Desktop/DropperTest/constraint/customised.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1022.930 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.068 . Memory (MB): peak = 1022.930 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1022.930 ; gain = 9.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tftg256-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1022.930 ; gain = 9.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1022.930 ; gain = 9.773
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'M_basket_q_reg' in module 'basket_fsm_4'
+INFO: [Synth 8-802] inferred FSM for state register 'M_state_q_reg' in module 'main_fsm_6'
+WARNING: [Synth 8-327] inferring latch for variable 'q_reg' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_cmp_17.v:28]
+WARNING: [Synth 8-327] inferring latch for variable 'M_shifter_alufn_reg' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shift_add_19.v:42]
+WARNING: [Synth 8-327] inferring latch for variable 'M_shifter_a_reg' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shift_add_19.v:43]
+WARNING: [Synth 8-327] inferring latch for variable 'M_shifter_b_reg' [C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.srcs/sources_1/imports/verilog/alu_shift_add_19.v:44]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+            ABLUE_basket |                         00000001 |                              000
+             ARED_basket |                         00000010 |                              001
+             BRED_basket |                         00000100 |                              011
+            BBLUE_basket |                         00001000 |                              010
+            CBLUE_basket |                         00010000 |                              100
+             CRED_basket |                         00100000 |                              101
+             DRED_basket |                         01000000 |                              111
+            DBLUE_basket |                         10000000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'M_basket_q_reg' using encoding 'one-hot' in module 'basket_fsm_4'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              IDLE_state | 00000000000000000000000000000000000001 |                           000000
+          INITLIFE_state | 00000000000000000000000000000000000010 |                           000001
+     INCREASECOUNT_state | 00000000000000000000000000000000000100 |                           000010
+       SHIFTBLOCK1_state | 00000000000000000000000000000000001000 |                           000011
+       SHIFTBLOCK2_state | 00000000000000000000000000000000010000 |                           000100
+       SHIFTBLOCK3_state | 00000000000000000000000000000000100000 |                           000101
+       SHIFTBLOCK4_state | 00000000000000000000000000000001000000 |                           000110
+        RANDCOLOUR_state | 00000000000000000000000000000010000000 |                           001010
+           RANDCOL_state | 00000000000000000000000000000100000000 |                           000111
+          CHECKCOL_state | 00000000000000000000000000001000000000 |                           001000
+         BRANCHCOL_state | 00000000000000000000000000010000000000 |                           001001
+      BRANCHCOLOUR_state | 00000000000000000000000000100000000000 |                           001100
+         STOREBLUE_state | 00000000000000000000000001000000000000 |                           001110
+          STORERED_state | 00000000000000000000000010000000000000 |                           001101
+           FINDCOL_state | 00000000000000000000000100000000000000 |                           001111
+           ADDCOL1_state | 00000000000000000000001000000000000000 |                           010000
+           ADDCOL2_state | 00000000000000000000010000000000000000 |                           010001
+           ADDCOL3_state | 00000000000000000000100000000000000000 |                           010010
+           ADDCOL4_state | 00000000000000000001000000000000000000 |                           010011
+         STORECOL1_state | 00000000000000000010000000000000000000 |                           010100
+         STORECOL2_state | 00000000000000000100000000000000000000 |                           010101
+         STORECOL3_state | 00000000000000001000000000000000000000 |                           010110
+         STORECOL4_state | 00000000000000010000000000000000000000 |                           010111
+     CHECKEMPTYROW_state | 00000000000000100000000000000000000000 |                           011000
+    BRANCHEMPTYROW_state | 00000000000001000000000000000000000000 |                           011001
+    CHECKPLAYERPOS_state | 00000000000010000000000000000000000000 |                           011010
+       BRANCHSCORE_state | 00000000000100000000000000000000000000 |                           011011
+        CHECKCOMBO_state | 00000000001000000000000000000000000000 |                           011100
+       BRANCHCOMBO_state | 00000000010000000000000000000000000000 |                           011101
+          ADDCOMBO_state | 00000000100000000000000000000000000000 |                           011110
+          MULCOMBO_state | 00000001000000000000000000000000000000 |                           011111
+          ADDSCORE_state | 00000010000000000000000000000000000000 |                           100000
+        RESETCOMBO_state | 00000100000000000000000000000000000000 |                           100001
+       MINUSHEALTH_state | 00001000000000000000000000000000000000 |                           100010
+       CHECKHEALTH_state | 00010000000000000000000000000000000000 |                           100011
+      BRANCHHEALTH_state | 00100000000000000000000000000000000000 |                           100100
+               END_state | 01000000000000000000000000000000000000 |                           101010
+           CLKHOLD_state | 10000000000000000000000000000000000000 |                           101001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'M_state_q_reg' using encoding 'one-hot' in module 'main_fsm_6'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1022.930 ; gain = 9.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   18 Bit       Adders := 1     
+	   3 Input   16 Bit       Adders := 3     
++---XORs : 
+	   2 Input     32 Bit         XORs := 4     
+	   4 Input     32 Bit         XORs := 2     
+	   2 Input      1 Bit         XORs := 1553  
+	   3 Input      1 Bit         XORs := 1552  
++---Registers : 
+	              256 Bit    Registers := 1     
+	               32 Bit    Registers := 8     
+	               18 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 14    
++---Muxes : 
+	   2 Input  256 Bit        Muxes := 1     
+	  58 Input   38 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 2     
+	   2 Input   18 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 1316  
+	   8 Input   16 Bit        Muxes := 2     
+	  16 Input   16 Bit        Muxes := 2     
+	   4 Input   16 Bit        Muxes := 3     
+	   8 Input    8 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 17    
+	  38 Input    6 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 188   
+	  38 Input    4 Bit        Muxes := 3     
+	   4 Input    4 Bit        Muxes := 1     
+	 256 Input    4 Bit        Muxes := 2     
+	   8 Input    3 Bit        Muxes := 1     
+	  38 Input    3 Bit        Muxes := 1     
+	   4 Input    3 Bit        Muxes := 2     
+	  20 Input    3 Bit        Muxes := 1     
+	  38 Input    2 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 203   
+	   8 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 19    
+	  38 Input    1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:00:58 . Memory (MB): peak = 1026.359 ; gain = 13.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:04 ; elapsed = 00:01:04 . Memory (MB): peak = 1026.359 ; gain = 13.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:36 ; elapsed = 00:02:37 . Memory (MB): peak = 1401.988 ; gain = 388.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:41 ; elapsed = 00:02:41 . Memory (MB): peak = 1401.988 ; gain = 388.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:44 ; elapsed = 00:02:44 . Memory (MB): peak = 1401.988 ; gain = 388.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:44 ; elapsed = 00:02:44 . Memory (MB): peak = 1401.988 ; gain = 388.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:44 ; elapsed = 00:02:45 . Memory (MB): peak = 1401.988 ; gain = 388.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:44 ; elapsed = 00:02:45 . Memory (MB): peak = 1401.988 ; gain = 388.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:44 ; elapsed = 00:02:45 . Memory (MB): peak = 1401.988 ; gain = 388.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:44 ; elapsed = 00:02:45 . Memory (MB): peak = 1401.988 ; gain = 388.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |   261|
+|3     |LUT1   |    47|
+|4     |LUT2   |   391|
+|5     |LUT3   |   309|
+|6     |LUT4   |   276|
+|7     |LUT5   |   328|
+|8     |LUT6   |   997|
+|9     |FDRE   |   849|
+|10    |FDSE   |    98|
+|11    |LD     |     5|
+|12    |IBUF   |     7|
+|13    |OBUF   |    91|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:44 ; elapsed = 00:02:45 . Memory (MB): peak = 1401.988 ; gain = 388.832
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:34 ; elapsed = 00:02:40 . Memory (MB): peak = 1401.988 ; gain = 379.059
+Synthesis Optimization Complete : Time (s): cpu = 00:02:45 ; elapsed = 00:02:45 . Memory (MB): peak = 1401.988 ; gain = 388.832
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.055 . Memory (MB): peak = 1401.988 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 266 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1401.988 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 5 instances were transformed.
+  LD => LDCE: 5 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+112 Infos, 20 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:50 ; elapsed = 00:02:51 . Memory (MB): peak = 1401.988 ; gain = 388.832
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Kaye/Desktop/DropperTest/work/vivado/DropperTest/DropperTest.runs/synth_1/au_top_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Dec  2 18:58:06 2020...

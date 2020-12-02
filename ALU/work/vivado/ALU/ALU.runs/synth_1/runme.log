@@ -1,0 +1,471 @@
+
+*** Running vivado
+    with args -log au_top_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
+
+
+
+****** Vivado v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source au_top_0.tcl -notrace
+Command: synth_design -top au_top_0 -part xc7a35tftg256-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tftg256-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 8600
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu__1' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu__1.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_adder_9' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_adder_9.v:7]
+INFO: [Synth 8-6157] synthesizing module 'full_adder_25' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/full_adder_25.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'full_adder_25' (1#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/full_adder_25.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_adder_XB_26' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_adder_XB_26.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_adder_XB_26' (2#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_adder_XB_26.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_adder_9' (3#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_adder_9.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shifter_10' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shifter_10.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shiftleft_27' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftleft_27.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftleft_27.v:23]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftleft_27.v:36]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftleft_27.v:49]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftleft_27.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shiftleft_27' (4#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftleft_27.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shiftright_28' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftright_28.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shiftright_mux_29' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftright_mux_29.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftright_mux_29.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shiftright_mux_29' (5#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftright_mux_29.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftright_28.v:38]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftright_28.v:51]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftright_28.v:64]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftright_28.v:77]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shiftright_28' (6#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shiftright_28.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shifter_10.v:43]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shifter_10' (7#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shifter_10.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_bool_11' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_bool_11.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_bool_11' (8#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_bool_11.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_cmp_12' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_cmp_12.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_cmp_12.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'alu_cmp_12' (9#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_cmp_12.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_mul_13' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_mul_13.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_mul_13' (10#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_mul_13.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_mod_14' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_mod_14.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu_mod_14' (11#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_mod_14.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_shift_add_15' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shift_add_15.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shift_add_15.v:66]
+INFO: [Synth 8-6155] done synthesizing module 'alu_shift_add_15' (12#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shift_add_15.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu__1' (13#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu__1.v:7]
+INFO: [Synth 8-6157] synthesizing module 'basket_fsm_2' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/basket_fsm_2.v:7]
+	Parameter ABLUE_basket bound to: 3'b000 
+	Parameter ARED_basket bound to: 3'b001 
+	Parameter BBLUE_basket bound to: 3'b010 
+	Parameter BRED_basket bound to: 3'b011 
+	Parameter CBLUE_basket bound to: 3'b100 
+	Parameter CRED_basket bound to: 3'b101 
+	Parameter DBLUE_basket bound to: 3'b110 
+	Parameter DRED_basket bound to: 3'b111 
+INFO: [Synth 8-6155] done synthesizing module 'basket_fsm_2' (14#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/basket_fsm_2.v:7]
+INFO: [Synth 8-6157] synthesizing module 'regfile_3' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/regfile_3.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'regfile_3' (15#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/regfile_3.v:7]
+INFO: [Synth 8-6157] synthesizing module 'main_fsm_4' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/main_fsm_4.v:7]
+	Parameter INITLIFE_state bound to: 6'b000000 
+	Parameter INCREASECOUNT_state bound to: 6'b000001 
+	Parameter SHIFTBLOCK1_state bound to: 6'b000010 
+	Parameter SHIFTBLOCK2_state bound to: 6'b000011 
+	Parameter SHIFTBLOCK3_state bound to: 6'b000100 
+	Parameter SHIFTBLOCK4_state bound to: 6'b000101 
+	Parameter RANDCOL_state bound to: 6'b000110 
+	Parameter CHECKCOL_state bound to: 6'b000111 
+	Parameter BRANCHCOL_state bound to: 6'b001000 
+	Parameter RANDCOLOUR_state bound to: 6'b001001 
+	Parameter ADDCOLOR1_state bound to: 6'b001010 
+	Parameter ADDCOLOR2_state bound to: 6'b001011 
+	Parameter ADDBLOCK_state bound to: 6'b001100 
+	Parameter STORECOL1_state bound to: 6'b001101 
+	Parameter STORECOL2_state bound to: 6'b001110 
+	Parameter STORECOL3_state bound to: 6'b001111 
+	Parameter STORECOL4_state bound to: 6'b010000 
+	Parameter CHECKEMPTYROW_state bound to: 6'b010001 
+	Parameter BRANCHEMPTYROW_state bound to: 6'b010010 
+	Parameter CHECKPLAYERPOS_state bound to: 6'b010011 
+	Parameter BRANCHSCORE_state bound to: 6'b010100 
+	Parameter CHECKCOMBO_state bound to: 6'b010101 
+	Parameter ADDCOMBO_state bound to: 6'b010110 
+	Parameter MULCOMBO_state bound to: 6'b010111 
+	Parameter ADDSCORE_state bound to: 6'b011000 
+	Parameter RESETCOMBO_state bound to: 6'b011001 
+	Parameter MINUSHEALTH_state bound to: 6'b011010 
+	Parameter CHECKHEALTH_state bound to: 6'b011011 
+	Parameter BRANCHHEALTH_state bound to: 6'b011100 
+	Parameter COUNTERMOD_state bound to: 6'b011101 
+	Parameter CHECKMOD_state bound to: 6'b011110 
+	Parameter BRANCHMOD_state bound to: 6'b011111 
+	Parameter INCREASECLK_state bound to: 6'b100000 
+	Parameter CLKHOLD_state bound to: 6'b100001 
+	Parameter END_state bound to: 6'b100010 
+	Parameter IDLE_state bound to: 6'b100011 
+INFO: [Synth 8-6157] synthesizing module 'counter_16' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_16.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11010 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 27'b011111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_16' (16#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_16.v:14]
+INFO: [Synth 8-6157] synthesizing module 'counter_17' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_17.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11001 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 26'b01111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_17' (17#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_17.v:14]
+INFO: [Synth 8-6157] synthesizing module 'counter_18' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_18.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11000 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 25'b0111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_18' (18#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_18.v:14]
+INFO: [Synth 8-6157] synthesizing module 'counter_19' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_19.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b10111 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 24'b011111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_19' (19#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_19.v:14]
+INFO: [Synth 8-6157] synthesizing module 'counter_20' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_20.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b10110 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 23'b01111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_20' (20#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_20.v:14]
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_8' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/edge_detector_8.v:12]
+	Parameter RISE bound to: 1'b1 
+	Parameter FALL bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_8' (21#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/edge_detector_8.v:12]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/main_fsm_4.v:148]
+INFO: [Synth 8-6155] done synthesizing module 'main_fsm_4' (22#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/main_fsm_4.v:7]
+INFO: [Synth 8-6157] synthesizing module 'rand_gen_5' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:11]
+	Parameter SEED bound to: 128'b10000100001100100011001101010010001110100110000100111001011001100100001000111011011000100010010101100010010110010010110001100010 
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_21' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/edge_detector_21.v:12]
+	Parameter RISE bound to: 1'b1 
+	Parameter FALL bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_21' (23#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/edge_detector_21.v:12]
+INFO: [Synth 8-6157] synthesizing module 'counter_22' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_22.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b10101 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 22'b0111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_22' (24#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/counter_22.v:14]
+INFO: [Synth 8-6157] synthesizing module 'pn_gen_23' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/pn_gen_23.v:11]
+	Parameter SEED bound to: 128'b10000100001100100011001101010010001110100110000100111001011001100100001000111011011000100010010101100010010110010010110001100010 
+INFO: [Synth 8-6155] done synthesizing module 'pn_gen_23' (25#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/pn_gen_23.v:11]
+WARNING: [Synth 8-151] case item 4'b1000 is unreachable [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:100]
+WARNING: [Synth 8-151] case item 4'b1001 is unreachable [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:103]
+WARNING: [Synth 8-151] case item 4'b1010 is unreachable [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:106]
+WARNING: [Synth 8-151] case item 4'b1011 is unreachable [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:109]
+WARNING: [Synth 8-151] case item 4'b1100 is unreachable [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:112]
+WARNING: [Synth 8-151] case item 4'b1101 is unreachable [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:115]
+WARNING: [Synth 8-151] case item 4'b1110 is unreachable [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:118]
+WARNING: [Synth 8-151] case item 4'b1111 is unreachable [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:121]
+INFO: [Synth 8-6155] done synthesizing module 'rand_gen_5' (26#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/rand_gen_5.v:11]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_6' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/reset_conditioner_6.v:11]
+	Parameter STAGES bound to: 3'b100 
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_6' (27#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/reset_conditioner_6.v:11]
+INFO: [Synth 8-6157] synthesizing module 'button_conditioner_7' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/button_conditioner_7.v:13]
+	Parameter CLK_FREQ bound to: 26'b10111110101111000010000000 
+	Parameter MIN_DELAY bound to: 5'b10100 
+	Parameter NUM_SYNC bound to: 2'b10 
+INFO: [Synth 8-6157] synthesizing module 'pipeline_24' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/pipeline_24.v:11]
+	Parameter DEPTH bound to: 2'b10 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_24' (28#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/pipeline_24.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'button_conditioner_7' (29#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/button_conditioner_7.v:13]
+INFO: [Synth 8-226] default block is never used [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/au_top_0.v:236]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (30#1) [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/au_top_0.v:7]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.134 . Memory (MB): peak = 1013.504 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/constraint/custom.xdc]
+Finished Parsing XDC File [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/constraint/custom.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/constraint/custom.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/constraint/customised.xdc]
+Finished Parsing XDC File [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/constraint/customised.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/constraint/customised.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1013.504 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tftg256-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'M_basket_q_reg' in module 'basket_fsm_2'
+INFO: [Synth 8-802] inferred FSM for state register 'M_state_q_reg' in module 'main_fsm_4'
+WARNING: [Synth 8-327] inferring latch for variable 'q_reg' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_cmp_12.v:28]
+WARNING: [Synth 8-327] inferring latch for variable 'M_shifter_alufn_reg' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shift_add_15.v:42]
+WARNING: [Synth 8-327] inferring latch for variable 'M_shifter_a_reg' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shift_add_15.v:43]
+WARNING: [Synth 8-327] inferring latch for variable 'M_shifter_b_reg' [C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.srcs/sources_1/imports/verilog/alu_shift_add_15.v:44]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+            ABLUE_basket |                         00000001 |                              000
+            BBLUE_basket |                         00000010 |                              010
+            CBLUE_basket |                         00000100 |                              100
+            DBLUE_basket |                         00001000 |                              110
+             DRED_basket |                         00010000 |                              111
+             CRED_basket |                         00100000 |                              101
+             BRED_basket |                         01000000 |                              011
+             ARED_basket |                         10000000 |                              001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'M_basket_q_reg' using encoding 'one-hot' in module 'basket_fsm_2'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+          INITLIFE_state | 00000000000000000000000000000000001 |                           000000
+     INCREASECOUNT_state | 00000000000000000000000000000000010 |                           000001
+       SHIFTBLOCK1_state | 00000000000000000000000000000000100 |                           000010
+       SHIFTBLOCK2_state | 00000000000000000000000000000001000 |                           000011
+       SHIFTBLOCK3_state | 00000000000000000000000000000010000 |                           000100
+       SHIFTBLOCK4_state | 00000000000000000000000000000100000 |                           000101
+           RANDCOL_state | 00000000000000000000000000001000000 |                           000110
+          CHECKCOL_state | 00000000000000000000000000010000000 |                           000111
+         BRANCHCOL_state | 00000000000000000000000000100000000 |                           001000
+        RANDCOLOUR_state | 00000000000000000000000001000000000 |                           001001
+         ADDCOLOR1_state | 00000000000000000000000010000000000 |                           001010
+         ADDCOLOR2_state | 00000000000000000000000100000000000 |                           001011
+          ADDBLOCK_state | 00000000000000000000001000000000000 |                           001100
+         STORECOL1_state | 00000000000000000000010000000000000 |                           001101
+         STORECOL2_state | 00000000000000000000100000000000000 |                           001110
+         STORECOL3_state | 00000000000000000001000000000000000 |                           001111
+         STORECOL4_state | 00000000000000000010000000000000000 |                           010000
+     CHECKEMPTYROW_state | 00000000000000000100000000000000000 |                           010001
+    BRANCHEMPTYROW_state | 00000000000000001000000000000000000 |                           010010
+    CHECKPLAYERPOS_state | 00000000000000010000000000000000000 |                           010011
+       BRANCHSCORE_state | 00000000000000100000000000000000000 |                           010100
+        CHECKCOMBO_state | 00000000000001000000000000000000000 |                           010101
+          ADDCOMBO_state | 00000000000010000000000000000000000 |                           010110
+          MULCOMBO_state | 00000000000100000000000000000000000 |                           010111
+          ADDSCORE_state | 00000000001000000000000000000000000 |                           011000
+        RESETCOMBO_state | 00000000010000000000000000000000000 |                           011001
+       MINUSHEALTH_state | 00000000100000000000000000000000000 |                           011010
+       CHECKHEALTH_state | 00000001000000000000000000000000000 |                           011011
+      BRANCHHEALTH_state | 00000010000000000000000000000000000 |                           011100
+               END_state | 00000100000000000000000000000000000 |                           100010
+              IDLE_state | 00001000000000000000000000000000000 |                           100011
+        COUNTERMOD_state | 00010000000000000000000000000000000 |                           011101
+          CHECKMOD_state | 00100000000000000000000000000000000 |                           011110
+       INCREASECLK_state | 01000000000000000000000000000000000 |                           100000
+           CLKHOLD_state | 10000000000000000000000000000000000 |                           100001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'M_state_q_reg' using encoding 'one-hot' in module 'main_fsm_4'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     32 Bit         XORs := 2     
+	   4 Input     32 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 529   
+	   3 Input      1 Bit         XORs := 528   
++---Registers : 
+	              256 Bit    Registers := 1     
+	               32 Bit    Registers := 4     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 11    
++---Muxes : 
+	   2 Input  256 Bit        Muxes := 1     
+	  35 Input   35 Bit        Muxes := 1     
+	   2 Input   35 Bit        Muxes := 4     
+	   2 Input   32 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 476   
+	   4 Input   16 Bit        Muxes := 3     
+	   8 Input   16 Bit        Muxes := 2     
+	  16 Input   16 Bit        Muxes := 2     
+	   8 Input    8 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 16    
+	  35 Input    6 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 68    
+	 256 Input    4 Bit        Muxes := 2     
+	  35 Input    4 Bit        Muxes := 3     
+	  20 Input    3 Bit        Muxes := 1     
+	  35 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 1     
+	  35 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 73    
+	   4 Input    1 Bit        Muxes := 18    
+	  35 Input    1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    15|
+|3     |LUT1   |     9|
+|4     |LUT2   |     4|
+|5     |LUT4   |    15|
+|6     |LUT5   |     5|
+|7     |LUT6   |     9|
+|8     |FDRE   |    76|
+|9     |FDSE   |     5|
+|10    |IBUF   |     6|
+|11    |OBUF   |    48|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1013.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:27 . Memory (MB): peak = 1013.504 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1013.504 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1013.504 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 15 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1013.504 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+94 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:40 . Memory (MB): peak = 1013.504 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Kaye/Desktop/ComStruc 50.002/alchitry/500021D/work/vivado/ALU/ALU.runs/synth_1/au_top_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 20 17:50:43 2020...

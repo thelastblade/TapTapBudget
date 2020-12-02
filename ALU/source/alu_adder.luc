@@ -1,0 +1,40 @@
+module alu_adder (
+    input a[16],
+    input b[16],
+    input alufn0,
+    output q[16],  // output sum
+    output z,
+    output v,
+    output n
+  ) {
+  full_adder fulladder[16];
+  alu_adder_XB xbcircuit;
+  sig xb[16];
+  sig s[16];
+
+  always {
+    // converts b to xb
+    xbcircuit.alufn0 = alufn0;
+    xbcircuit.b = b;
+    xb = xbcircuit.xb;
+    
+    // implementation of 16 bit ripple-carry addder
+    fulladder.a = a; 
+    fulladder.b = xb;
+    fulladder.cin[0] = alufn0;  // cin0 = alfun0
+    fulladder.cin[15:1] = fulladder.cout[14:0];  // cin1 = cout0, cin2 = cout1
+    
+    // output q takes the 16 bit sum
+    q = fulladder.s;
+    
+    // get z
+    s = fulladder.s;
+    z = ~(s[15] | s[14] | s[13] | s[12] | s[11] | s[10] | s[9] | s[8] | s[7] | s[6] | s[5] | s[4] | s[3] | s[2] | s[1] | s[0]);
+    
+    // get v
+    v = (a[15] & xb[15] & ~s[15]) | (~a[15] & ~xb[15] & s[15]);
+    
+    // get n
+    n = s[15];    
+  }
+}

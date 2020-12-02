@@ -1,0 +1,17 @@
+module alu_shiftright_mux ( // MUX SELECTS BETWEEN SHR AND SRA using alufn1 as selector
+    input a, // a[15]
+    input alufn1, // selector
+    output out
+  ) {
+
+  always {
+    case(alufn1){
+      b0: // SHR
+        out = b0;
+      b1: // SRA
+        out = a;
+      default: // default is SHR
+        out = b0;
+    }
+  }
+}

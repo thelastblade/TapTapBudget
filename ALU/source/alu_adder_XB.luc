@@ -1,0 +1,25 @@
+module alu_adder_XB (         // CONVERTS B TO XB WHERE XB = B XOR ALUFN0
+    input b[16],
+    input alufn0,
+    output xb[16]
+  ) {
+
+  always {
+    xb[15] = b[15] ^ alufn0;
+    xb[14] = b[14] ^ alufn0;
+    xb[13] = b[13] ^ alufn0;
+    xb[12] = b[12] ^ alufn0;
+    xb[11] = b[11] ^ alufn0;
+    xb[10] = b[10] ^ alufn0;
+    xb[9] = b[9] ^ alufn0;
+    xb[8] = b[8] ^ alufn0;
+    xb[7] = b[7] ^ alufn0;
+    xb[6] = b[6] ^ alufn0;
+    xb[5] = b[5] ^ alufn0;
+    xb[4] = b[4] ^ alufn0;
+    xb[3] = b[3] ^ alufn0;
+    xb[2] = b[2] ^ alufn0;
+    xb[1] = b[1] ^ alufn0;
+    xb[0] = b[0] ^ alufn0;
+  }
+}

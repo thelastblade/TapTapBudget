@@ -1,0 +1,114 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
+| Date         : Wed Dec  2 18:59:13 2020
+| Host         : DESKTOP-1K67A6C running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
+| Design       : au_top_0
+| Device       : xc7a35t
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    36 |
+|    Minimum number of control sets                        |    36 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    86 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    36 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    30 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              29 |           15 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             233 |           61 |
+| Yes          | No                    | No                     |              86 |           31 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             654 |          286 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------------+-----------------------------------------------------+------------------------------------------+------------------+----------------+--------------+
+|               Clock Signal              |                    Enable Signal                    |             Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------------------+-----------------------------------------------------+------------------------------------------+------------------+----------------+--------------+
+|  main_fsm/FSM_onehot_M_state_q_reg[9]_0 |                                                     |                                          |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG                          |                                                     | reset_buttoncond/SS[0]                   |                2 |              4 |         2.00 |
+|  main_fsm/E[0]                          |                                                     |                                          |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG                          | random2/slowerclock/M_stage_q_reg[3]                | reset_cond/Q[0]                          |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG                          | random/slowerclock/M_stage_q_reg[3]                 | reset_cond/Q[0]                          |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG                          | left_buttondetector/E[0]                            | reset_cond/Q[0]                          |                5 |              8 |         1.60 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[5]          | reset_cond/Q[0]                          |               10 |             16 |         1.60 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[13]         | reset_cond/Q[0]                          |               10 |             16 |         1.60 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[10]         | reset_cond/Q[0]                          |               13 |             16 |         1.23 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[14]         | reset_cond/Q[0]                          |               11 |             16 |         1.45 |
+|  clk_IBUF_BUFG                          | random2/edge_detector_seed/M_edge_detector_seed_out |                                          |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG                          | random/edge_detector_seed/M_edge_detector_seed_out  |                                          |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[7]          | reset_cond/Q[0]                          |               12 |             16 |         1.33 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[15]         | reset_cond/Q[0]                          |               12 |             16 |         1.33 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[9]          | reset_cond/Q[0]                          |                9 |             16 |         1.78 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[12]         | reset_cond/Q[0]                          |                9 |             16 |         1.78 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[8]          | reset_cond/Q[0]                          |               11 |             16 |         1.45 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[11]         | reset_cond/Q[0]                          |                9 |             16 |         1.78 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[4]          | reset_cond/Q[0]                          |               12 |             17 |         1.42 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[6]          | reset_cond/Q[0]                          |                9 |             17 |         1.89 |
+|  clk_IBUF_BUFG                          | colour_buttoncond/M_ctr_q[0]_i_2__12_n_0            | colour_buttoncond/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG                          | left_buttoncond/M_ctr_q[0]_i_2__10_n_0              | left_buttoncond/sync/M_pipe_q_reg[1]_0   |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG                          | next_buttoncond/sel                                 | next_buttoncond/sync/clear               |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG                          | reset_buttoncond/M_ctr_q[0]_i_2__9_n_0              | reset_buttoncond/sync/M_pipe_q_reg[1]_0  |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG                          | right_buttoncond/M_ctr_q[0]_i_2__11_n_0             | right_buttoncond/sync/M_pipe_q_reg[1]_0  |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG                          |                                                     |                                          |               13 |             24 |         1.85 |
+|  clk_IBUF_BUFG                          | random2/slowerclock/M_stage_q_reg[3]                |                                          |               11 |             27 |         2.45 |
+|  clk_IBUF_BUFG                          | random/slowerclock/M_stage_q_reg[3]                 |                                          |               12 |             27 |         2.25 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[1]          | reset_cond/Q[0]                          |               20 |             28 |         1.40 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[2]          | reset_cond/Q[0]                          |               18 |             28 |         1.56 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[3]          | reset_cond/Q[0]                          |               16 |             28 |         1.75 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q_reg[30]_0[0]          | reset_cond/Q[0]                          |               18 |             28 |         1.56 |
+|  clk_IBUF_BUFG                          | main_fsm/FSM_onehot_M_state_q[37]_i_1_n_0           | reset_cond/Q[0]                          |               12 |             38 |         3.17 |
+|  clk_IBUF_BUFG                          | random/edge_detector_rng/E[0]                       | reset_cond/Q[0]                          |               22 |             96 |         4.36 |
+|  clk_IBUF_BUFG                          | random2/edge_detector_rng/E[0]                      | reset_cond/Q[0]                          |               18 |             96 |         5.33 |
+|  clk_IBUF_BUFG                          |                                                     | reset_cond/Q[0]                          |               59 |            229 |         3.88 |
++-----------------------------------------+-----------------------------------------------------+------------------------------------------+------------------+----------------+--------------+
+
+

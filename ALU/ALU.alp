@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ALU" board="Alchitry Au" language="Lucid" version="3">
+  <files>
+    <src>rand_gen.luc</src>
+    <component>pipeline.luc</component>
+    <component>counter.luc</component>
+    <src>alu_mul.luc</src>
+    <src>seven_segment.luc</src>
+    <src>state_counter.luc</src>
+    <src>main_fsm.luc</src>
+    <src>alu_shiftright_mux.luc</src>
+    <src>full_adder_ROM.luc</src>
+    <src>alu_tester.luc</src>
+    <src>alu_mod.luc</src>
+    <src>alu_cmp.luc</src>
+    <component>reset_conditioner.luc</component>
+    <src>alu_shifter.luc</src>
+    <src top="true">au_top.luc</src>
+    <src>full_adder.luc</src>
+    <src>basket_fsm.luc</src>
+    <src>alu_adder.luc</src>
+    <component>button_conditioner.luc</component>
+    <src>alu_.luc</src>
+    <src>multi_seven_seg.luc</src>
+    <src>regfile.luc</src>
+    <src>alu_shiftleft.luc</src>
+    <component>decoder.luc</component>
+    <src>alu_bool.luc</src>
+    <component>pn_gen.luc</component>
+    <src>main_fsm_tester.luc</src>
+    <src>alu_shiftright.luc</src>
+    <component>edge_detector.luc</component>
+    <src>alu_adder_XB.luc</src>
+    <src>alu_shift_add.luc</src>
+    <src>score_to_4_digits.luc</src>
+    <constraint>custom.acf</constraint>
+    <constraint>customised.xdc</constraint>
+  </files>
+</project>

@@ -1,0 +1,197 @@
+module alu_mul (
+    
+    // two 16 bit inputs to be multiplied together
+    input a[16],
+    input b[16],
+    
+    // one 16 bit output displaying the least significant 16 bits
+    output q[16]
+  ) {
+  alu_adder adder[15];
+  alu_shifter shifter[15];
+  // creating 16 sums obtained from partial products
+  sig s0[16]; // this sum is from the 2^0's place
+  sig s1[16]; // this sum is from the 2^1's place
+  sig s2[16]; // this sum is from the 2^2's place
+  sig s3[16]; // and so on...
+  sig s4[16];
+  sig s5[16];
+  sig s6[16];
+  sig s7[16];
+  sig s8[16];
+  sig s9[16];
+  sig s10[16];
+  sig s11[16];
+  sig s12[16];
+  sig s13[16];
+  sig s14[16];
+  sig s15[16];
+  
+
+  always {
+    // default output is 0
+    q = 0;
+    
+    // finding each partial product
+    s0[15:0] = (16x{a[0]}) & (b[15:0]);
+    
+    //s1[15:0] = (16x{a[1]}) & (b[15:0]) << 1; // shift left by 1 bit
+    
+    shifter.a[0] = (16x{a[1]}) & (b[15:0]);
+    shifter.b[0] = d1;
+    shifter.alufn[0] = b000;
+    s1[15:0] = shifter.q[0];
+    
+    //s2[15:0] = (16x{a[2]}) & (b[15:0]) << 2; // shift left by 2 bits
+    
+    shifter.a[1] = (16x{a[2]}) & (b[15:0]);
+    shifter.b[1] = d2;
+    shifter.alufn[1] = b000;
+    s2[15:0] = shifter.q[1];
+    
+    //s3[15:0] = (16x{a[3]}) & (b[15:0]) << 3; // shift left by 3 bits
+    
+    shifter.a[2] = (16x{a[3]}) & (b[15:0]);
+    shifter.b[2] = d3;
+    shifter.alufn[2] = b000;
+    s3[15:0] = shifter.q[2];
+    
+    //s4[15:0] = (16x{a[4]}) & (b[15:0]) << 4; // and so on...
+    
+    shifter.a[3] = (16x{a[4]}) & (b[15:0]);
+    shifter.b[3] = d4;
+    shifter.alufn[3] = b000;
+    s4[15:0] = shifter.q[3];
+    
+    //s5[15:0] = (16x{a[5]}) & (b[15:0]) << 5;
+    
+    shifter.a[4] = (16x{a[5]}) & (b[15:0]);
+    shifter.b[4] = d5;
+    shifter.alufn[4] = b000;
+    s5[15:0] = shifter.q[4];
+    
+    //s6[15:0] = (16x{a[6]}) & (b[15:0]) << 6;
+    
+    shifter.a[5] = (16x{a[6]}) & (b[15:0]);
+    shifter.b[5] = d6;
+    shifter.alufn[5] = b000;
+    s6[15:0] = shifter.q[5];
+    
+    //s7[15:0] = (16x{a[7]}) & (b[15:0]) << 7;
+    
+    shifter.a[6] = (16x{a[7]}) & (b[15:0]);
+    shifter.b[6] = d7;
+    shifter.alufn[6] = b000;
+    s7[15:0] = shifter.q[6];
+    
+    //s8[15:0] = (16x{a[8]}) & (b[15:0]) << 8;
+    
+    shifter.a[7] = (16x{a[8]}) & (b[15:0]);
+    shifter.b[7] = d8;
+    shifter.alufn[7] = b000;
+    s8[15:0] = shifter.q[7];
+    
+    //s9[15:0] = (16x{a[9]}) & (b[15:0]) << 9;
+    
+    shifter.a[8] = (16x{a[9]}) & (b[15:0]);
+    shifter.b[8] = d9;
+    shifter.alufn[8] = b000;
+    s9[15:0] = shifter.q[8];
+    
+    //s10[15:0] = (16x{a[10]}) & (b[15:0]) << 10;
+    
+    shifter.a[9] = (16x{a[10]}) & (b[15:0]);
+    shifter.b[9] = d10;
+    shifter.alufn[9] = b000;
+    s10[15:0] = shifter.q[9];
+    
+    //s11[15:0] = (16x{a[11]}) & (b[15:0]) << 11;
+    
+    shifter.a[10] = (16x{a[11]}) & (b[15:0]);
+    shifter.b[10] = d11;
+    shifter.alufn[10] = b000;
+    s11[15:0] = shifter.q[10];
+    
+    //s12[15:0] = (16x{a[12]}) & (b[15:0]) << 12;
+    
+    shifter.a[11] = (16x{a[12]}) & (b[15:0]);
+    shifter.b[11] = d12;
+    shifter.alufn[11] = b000;
+    s12[15:0] = shifter.q[11];
+    
+    //s13[15:0] = (16x{a[13]}) & (b[15:0]) << 13;
+    
+    shifter.a[12] = (16x{a[13]}) & (b[15:0]);
+    shifter.b[12] = d13;
+    shifter.alufn[12] = b000;
+    s13[15:0] = shifter.q[12];
+    
+    //s14[15:0] = (16x{a[14]}) & (b[15:0]) << 14;
+    
+    shifter.a[13] = (16x{a[14]}) & (b[15:0]);
+    shifter.b[13] = d14;
+    shifter.alufn[13] = b000;
+    s14[15:0] = shifter.q[13];
+    
+    //s15[15:0] = (16x{a[15]}) & (b[15:0]) << 15;
+    
+    shifter.a[14] = (16x{a[15]}) & (b[15:0]);
+    shifter.b[14] = d15;
+    shifter.alufn[14] = b000;
+    s15[15:0] = shifter.q[14];
+    
+    // summing all partial products and returning least significant 16 bits
+    adder.alufn0 = 0;
+    
+    adder.a[0] = s0;
+    adder.b[0] = s1;
+    
+    adder.a[1] = s2;
+    adder.b[1] = s3;
+    
+    adder.a[2] = s4;
+    adder.b[2] = s5;
+    
+    adder.a[3] = s6;
+    adder.b[3] = s7;
+    
+    adder.a[4] = s8;
+    adder.b[4] = s9;
+    
+    adder.a[5] = s10;
+    adder.b[5] = s11;
+    
+    adder.a[6] = s12;
+    adder.b[6] = s13;
+    
+    adder.a[7] = s14;
+    adder.b[7] = s15;
+    
+    
+    adder.a[8] = adder.q[0];
+    adder.b[8] = adder.q[1];
+    
+    adder.a[9] = adder.q[2];
+    adder.b[9] = adder.q[3];
+    
+    adder.a[10] = adder.q[4];
+    adder.b[10] = adder.q[5];
+    
+    adder.a[11] = adder.q[6];
+    adder.b[11] = adder.q[7];
+    
+    
+    adder.a[12] = adder.q[8];
+    adder.b[12] = adder.q[9];
+    
+    adder.a[13] = adder.q[10];
+    adder.b[13] = adder.q[11];
+    
+    adder.a[14] = adder.q[12];
+    adder.b[14] = adder.q[13];
+    
+    q = adder.q[14];    
+    
+   // q = s0 + s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10 + s11 + s12 + s13 + s14 + s15;
+  }
+}

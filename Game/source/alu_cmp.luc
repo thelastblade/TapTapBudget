@@ -1,0 +1,24 @@
+module alu_cmp (
+    input alufn2,
+    input alufn1,
+    input z,
+    input v,
+    input n,
+    output q[16]
+  ) {
+  sig p;
+  sig r;
+  always {
+    p = v ^ n;
+    r = p | z;
+    case(c{alufn2,alufn1}){
+      b01:  // a = b
+        q[0] = z;
+      b10:  // a < b
+        q[0] = p;
+      b11:  // a <= b
+        q[0] = r;
+      }
+    q[15:1] = 0;
+  }
+}

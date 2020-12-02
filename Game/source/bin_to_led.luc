@@ -1,0 +1,15 @@
+module bin_to_led (
+    input deci[2],
+    output threebit[3]
+  ) {
+
+  always {
+    case(deci){
+      d0: threebit = b000;
+      d1: threebit = b001; // input 1 -> output b1
+      d2: threebit = b011; // input 2 -> output b11
+      d3: threebit = b111; // input 3 -> output b111
+      default: threebit = b000;
+    }    
+  }
+}

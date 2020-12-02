@@ -1,0 +1,32 @@
+module alu_bool (
+    //inputs
+    input a[16],
+    input b[16],
+    input alufn[6],
+    
+    //output
+    output q[16]
+    
+  ) {
+  
+  var i;
+  var x;
+
+  always {
+    for(i=0;i<16;i++){
+      x = c{b[i],a[i]};
+      case(x){
+      b00:
+        q[i] = alufn[0];
+      b01:
+        q[i] = alufn[1];
+      b10:
+        q[i] = alufn[2];
+      b11:
+        q[i] = alufn[3];
+      default:
+        q[i] = alufn[0];
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+module state_counter ( // WHEN BUTTON IS PRESSED, OUTPUT IN INCREMEMNTED BY 1. INITIAL OUTPUT = 0. WHEN OUTPUT > 32, RESET TO OUTPUT = 0 
+    input clk,  // clock
+    input rst,  // reset
+    input button,
+    output out[7]
+  ) {
+  .clk(clk) {
+    .rst(rst) {
+      dff register_1[7](#INIT(0));
+    }
+  }
+  alu_adder adder;
+  always {
+    if (button) { // on button press, b input is 1
+      adder.b = b1;
+    }
+    else { // if button not pressed, b input is 0
+      adder.b = b0;
+    }
+    adder.a = register_1.q;
+    adder.alufn0 = b0;
+    if (adder.q < 33) {
+      register_1.d = adder.q[6:0];
+      out = adder.q[6:0];
+    }
+    else {
+      register_1.d = b0;
+      out = b0;
+    }
+    
+  }
+}

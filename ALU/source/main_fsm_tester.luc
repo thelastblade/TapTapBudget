@@ -1,0 +1,130 @@
+module main_fsm_tester (
+    input clk,  // clock
+    input rst,  // reset
+    input start, // start button
+    input next,  // next state button
+    input alu[16],  // output of the alufn
+    input rd2[16],  // rd2
+    input hold,     // clk hold of the slow clock
+    
+    output asel[2],
+    output bsel[3],
+    output alufn[6],
+    output stu,
+    output we,
+    output ra[4],
+    output rb[4],
+    output rc[4]
+    
+  ) {
+  .clk(clk) {
+    .rst(rst) {
+      fsm state = {INCREASECOUNT, SHIFTBLOCK1, SHIFTBLOCK2, SHIFTBLOCK3, SHIFTBLOCK4, RANDCOL, CHECKCOL, BRANCHCOL, RANDCOLOUR, ADDCOLOR, ADDBLOCK, STORECOL1, STORECOL2, STORECOL3, STORECOL4, CHECKEMPTYROW, BRANCHEMPTYROW, CHECKPLAYERPOS, BRANCHSCORE, CHECKCOMBO, ADDCOMBO, MULCOMBO, ADDSCORE, RESETCOMBO, MINUSHEALTH, CHECKHEALTH, BRANCHHEALTH, COUNTERMOD, CHECKMOD, BRANCHMOD, INCREASECLK, CLKHOLD, END, IDLE}; // default will be IDLE
+      //counter slowClock(#SIZE(1),#DIV(26));
+      //counter slowClock(#SIZE(1),#DIV(2));
+    }
+    //edge_detector slowClockEdge(#RISE(1), #FALL(0));
+  }
+  
+  
+  //var col[16];
+  
+  
+  always {
+  
+    //slowClockEdge.in = slowClock.value;
+    
+    asel = 2b0;
+    bsel = 3b0;
+    stu = 0;
+    we = 0;
+    ra = 4b0;
+    rb = 4b0;
+    rc = 4b0;
+    alufn = 6b0;
+    
+    case(state.q) {
+    
+      state.IDLE:
+        if (start) {
+          state.d = state.INCREASECOUNT; 
+        }
+      
+      // State to start the game and add 1 to the counter
+      state.INCREASECOUNT:
+        alufn = 6b000000; //ADD
+        ra = 4b0111;
+        rc = 4b0111;
+        asel = 2b00;
+        bsel = 3b001;
+        if (next == b1){ //only add when MSB of slowCLock == 1
+          state.d = state.SHIFTBLOCK1;
+        }
+      
+      // Shift the first column by 2 bits
+      state.SHIFTBLOCK1:
+        alufn = 6b100000; //SHL
+        ra = 4b0;
+        rc = 4b0;
+        asel = 2b00;
+        bsel = 3b010;
+        //state.d = state.SHIFTBLOCK2;
+        if (next == b1){ //only add when MSB of slowCLock == 1
+          state.d = state.SHIFTBLOCK2;
+        }
+      
+      // Shift the second column by 2 bits
+      state.SHIFTBLOCK2:
+        alufn = 6b100000; //SHL
+        ra = 4b0001;
+        rc = 4b0001;
+        asel = 2b00;
+        bsel = 3b010;
+        if (next == b1){ //only add when MSB of slowCLock == 1
+          state.d = state.SHIFTBLOCK3;
+        }    
+      // Shift the third column by 2 bits
+      state.SHIFTBLOCK3:
+        alufn = 6b100000; //SHL
+        ra = 4b0001;
+        rc = 4b0001;
+        asel = 2b00;
+        bsel = 3b010;
+        we = b1;
+        if (next == b1){ //only add when MSB of slowCLock == 1
+              state.d = state.SHIFTBLOCK4;
+        }
+      // Shift the fourth column by 2 bits
+      state.SHIFTBLOCK4:
+        alufn = 6b100000; //SHL
+        ra = 4b0001;
+        rc = 4b0001;
+        asel = 2b00;
+        bsel = 3b010;
+        we = b1;
+        if (next) {
+            state.d = state.RANDCOL;
+          }
+
+      state.RANDCOL:
+        alufn = 6b011100; //B
+        rc = 4b1001;
+        asel = 2b11;
+        we = b1;
+        //col = alu; // store rand col as var
+        if (next) {
+            state.d = state.CHECKCOL;
+          }
+
+      state.CHECKCOL:
+        alufn = 6b110111; //CMPLE
+        ra = 4b1001;
+        rc = 4b1011;
+        asel = 2b00;
+        bsel = 3b011;
+        we = b1;
+        if (next) {
+            state.d = state.INCREASECOUNT;  // CHANGE BACK LATER
+          }
+  }
+}

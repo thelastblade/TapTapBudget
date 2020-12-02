@@ -1,0 +1,128 @@
+module basket_fsm (
+    input clk,  // clock
+    input rst,  // reset
+    input l,
+    input r,
+    input c,
+    output q[8]
+  ) {
+  
+  .clk(clk) {
+      .rst(rst) {
+        //BASKET has 4 positions, and can be blue or red, so 8 states in total
+        fsm basket = {
+        ABLUE, ARED,
+        BBLUE, BRED,
+        CBLUE, CRED,
+        DBLUE, DRED
+        }; 
+      }
+    }
+  always {
+    q = b10;
+    
+    case(basket.q) {
+      basket.ABLUE:
+        q = b10000000;
+        if (l) {
+          basket.d = basket.ABLUE;
+        }
+        if (r) {
+          basket.d = basket.BBLUE;
+        }
+        if (c) {
+          basket.d = basket.ARED;
+        }
+    
+      basket.ARED:
+        q = b11000000;
+        if (l) {
+          basket.d = basket.ARED;
+        }
+        if (r) {
+          basket.d = basket.BRED;
+        }
+        if (c) {
+          basket.d = basket.ABLUE;
+        }
+      
+      basket.BBLUE:
+        q = b00100000;
+        if (l) {
+          basket.d = basket.ABLUE;
+        }
+        if (r) {
+          basket.d = basket.CBLUE;
+        }
+        if (c) {
+          basket.d = basket.BRED;
+        }
+    
+      basket.BRED:
+        q = b00110000;
+        if (l) {
+          basket.d = basket.ARED;
+        }
+        if (r) {
+          basket.d = basket.CRED;
+        }
+        if (c) {
+          basket.d = basket.BBLUE;
+        }
+        
+      basket.CBLUE:
+        q = b00001000;
+        if (l) {
+          basket.d = basket.BBLUE;
+        }
+        if (r) {
+          basket.d = basket.DBLUE;
+        }
+        if (c) {
+          basket.d = basket.CRED;
+        }
+    
+      basket.CRED:
+        q = b00001100;
+        if (l) {
+          basket.d = basket.BRED;
+        }
+        if (r) {
+          basket.d = basket.DRED;
+        }
+        if (c) {
+          basket.d = basket.CBLUE;
+        }
+        
+      basket.DBLUE:
+        q = b00000010;
+        if (l) {
+          basket.d = basket.CBLUE;
+        }
+        if (r) {
+          basket.d = basket.DBLUE;
+        }
+        if (c) {
+          basket.d = basket.DRED;
+        }
+    
+      basket.DRED:
+        q = b00000011;
+        if (l) {
+          basket.d = basket.CRED;
+        }
+        if (r) {
+          basket.d = basket.DRED;
+        }
+        if (c) {
+          basket.d = basket.DBLUE;
+        }
+        
+        
+    }
+    
+    
+        
+    
+  }
+}

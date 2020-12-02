@@ -1,0 +1,38 @@
+module alu_mod (
+    // inputs
+    input a[16],
+    input b[16],
+    // outputs
+    output q[16]
+  ) {
+  
+  // import multiply and adder modules
+  alu_mul multiply;
+  alu_adder adder;
+  
+  // intermediate connections
+  sig floor[16];
+  sig mul[16];
+  
+  always {
+  
+    // default output is 0
+    q = 0;
+    
+    // modulo formula: a - ((a/b)*b)
+    
+    // get the floor value of a/b
+    floor = a / b;
+    
+    // multiply floor with b
+    multiply.a = floor;
+    multiply.b = b;
+    mul = multiply.q;
+    
+    // substracting mul from a
+    adder.a = a;
+    adder.b = mul;
+    adder.alufn0 = 1; // to initialise subtraction
+    q = adder.q;
+  }
+}

@@ -1,0 +1,562 @@
+module alu_tester (
+    input clk,  // clock
+    input rst,  // reset
+    input next, // use for triggering next state
+    input actout[16], // actual output
+    output a[16],
+    output b[16],
+    output alufn[6],
+    output q,  // boolean output where 1 means expected output = actual output
+    output state_index[7]  // keeps track of which state we are in
+  ) {
+  
+  //Declaring all the state to be checked
+  .clk(clk) {
+    .rst(rst) {
+      fsm state = {
+      IDLE, // default will be IDLE, state_index = 0
+      ADD1,ADD2,ADD3,SUB1,SUB2, // ADD1 -> state_index = 1, ADD2 -> state_index = 2 etc
+      AND,OR,XOR,A,B,
+      SHL1,SHL2,SHR1,SHR2,SRA1,
+      SRA2,CMPEQ1,CMPEQ2,CMPLT1,CMPLT2,
+      CMPLT3,CMPLE1,CMPLE2,CMPLE3,MUL1,
+      MUL2,MUL3,MUL4,MUL5,MOD1,
+      MOD2,MOD3 // MOD3 -> state_index = 32
+      }; 
+      state_counter state_cout;
+    }
+  }
+  var expout; // expected output
+
+  //Declaring all the I/O for test cases
+  always {
+    
+    // initialise
+    q = 0;
+    a = 16b0;
+    b = 16b0;
+    alufn = 6b0;
+    expout = 16b0;
+    state_index = 0;
+    state_cout.button = next;
+
+    
+    case(state.q) {
+      //Idle case
+      state.IDLE:
+        q = 1;
+        state_index = state_cout.out;
+        if (next) {
+          state.d = state.ADD1;
+        }
+      //Checking adding whether h0FFF+h7001 = h8000
+      state.ADD1:
+        a = 16h0FFF;
+        b = 16h7001;
+        expout = 16h8000;
+        alufn = 6b000000;
+        state_index = state_cout.out;
+        if (expout == actout) {
+            q = 1;
+          } else {
+            q = 0;
+          }
+        if (next) {
+          state.d = state.ADD2;
+        }
+       //Checking adding whether h8001+h0011 = h8012
+       state.ADD2:
+        a = 16h8001;
+        b = 16h0011;
+        expout = 16h8012;
+        alufn = 6b000000;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.ADD3;
+        }
+        //Checking adding whether hF000+h1000 = 0 due to overflow, 16 MSB are all 0
+       state.ADD3:
+        a = hF000;
+        b = h1000;
+        expout = 0;
+        alufn = 6b000000;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.SUB1;
+        }
+        //Checking adding whether b0011001100110011-b0011001100110011 = b110000
+       state.SUB1:
+        a = b0011001100110011;
+        b = b0011001100000011;
+        expout = 16b110000;
+        alufn = 6b000001;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.SUB2;
+        }
+
+        //Checking adding whether h3000+hFFFF = h3001
+       state.SUB2:
+        a = h3000;
+        b = hFFFF;
+        expout = h3001;
+        alufn = 6b000001;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.AND;
+        }
+        
+        //Checking whether inputA:(1111111100000000) AND of inputB:(1111000011110000)
+        //expoutected output should be output(1111000000000000)
+       state.AND:
+        a = 16b1111111100000000;
+        b = 16b1111000011110000;
+        expout = 16b1111000000000000;
+        alufn = 6b011000;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+		        state.d = state.OR; //auto proceed to the next test state regardless
+        }
+      //Checking whether inputA:(1111111100000000) OR of inputB:(1111000011110000)
+      //expoutected output should be output(1111111111110000)
+      state.OR:
+        a = 16b1111111100000000;
+        b = 16b1111000011110000;
+        expout = 16b1111111111110000;
+        alufn = 6b011110;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+		        state.d = state.XOR; //auto proceed to the next test state regardless
+        }
+      //Checking whether inputA:(1111111100000000) XOR of inputB:(1111000011110000)
+      //expoutected output should be output(0000111111110000)
+      state.XOR:
+        a = 16b1111111100000000;
+        b = 16b1111000011110000;
+        expout = 16b0000111111110000;
+        alufn = 6b010110;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+		        state.d = state.A; //auto proceed to the next test state regardless
+        }
+      //Checking whether inputA:(1111111100000000) A of inputB:(1111000011110000)
+      //expoutected output should be output(1111111100000000)
+      state.A:
+        a = 16b1111111100000000;
+        b = 16b1111000011110000;
+        expout = 16b1111111100000000;
+        alufn = 6b011010;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+		        state.d = state.B; //auto proceed to the next test state regardless
+        }
+      //Checking whether inputA:(1111111100000000) A of inputB:(1111000011110000)
+      //expoutected output should be output(1111000011110000)
+      state.B:
+        a = 16b1111111100000000;
+        b = 16b1111000011110000;
+        expout = 16b1111000011110000;
+        alufn = 6b011100;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+		        state.d = state.SHL1; //auto proceed to the next test state regardless
+        }
+      //Checking whether shift left of (10) bit from (1111000110001111) is (0011110000000000)
+      state.SHL1:
+        a = 16b1111000110001111;
+        b = 16b0000000000001010;
+        expout = 16b0011110000000000;
+        alufn = 6b100000;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+		        state.d = state.SHL2; //auto proceed to the next test state regardless
+        }
+        
+      //Checking whether shift left of (17) bit from (1111000110001111), exp (16b0)
+      state.SHL2:
+        a = 16b1111000110001111;
+        b = 16b0000000000010001;
+        expout = 16b0;
+        alufn = 6b100000;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+		        state.d = state.SHR1; //auto proceed to the next test state regardless
+        }
+      //Checking whether shift right of (10) bit from (1111000110001111) is (0000000000111100)
+      state.SHR1:
+        a = 16b1111000110001111;
+        b = 16b0000000000001010;
+        expout = 16b0000000000111100;
+        alufn = 6b100001;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+		        state.d = state.SHR2; //auto proceed to the next test state regardless
+        }
+      //Checking whether shift right of (17) bit from (1111000110001111), exp (16b0)
+      state.SHR2:
+        a = 16b1111000110001111;
+        b = 16b0000000000010001;
+        expout = 16b0;
+        alufn = 6b100001;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+		        state.d = state.SRA1; //auto proceed to the next test state regardless
+        }
+        
+    // Expected output is 1111 1111 1111 1100 as we shift a by 10 to the right and pad with 1
+    state.SRA1:
+      a = 16b1111000110001111;
+      b = 16b0000000000001010;
+      expout = 16b1111111111111100;
+      alufn = 6b100011;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+        state.d = state.SRA2; // Move on to the next test case
+      }
+    
+    //Checking whether shift right of (17) bit from (1111000110001111), exp (1111111111111111)
+    state.SRA2:
+      a = 16b1111000110001111;
+      b = 16b0000000000010001;
+      expout = 16x{b1};
+      alufn = 6b100011;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+        state.d = state.CMPEQ1; // Move on to the next test case
+      }
+    
+    // Exected output is 1 as a is equals to b
+    state.CMPEQ1:
+      a = 16b1111000110001111;
+      b = 16b1111000110001111;
+      expout = 16b0000000000000001;
+      alufn = 6b110011;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+        state.d = state.CMPEQ2; // Move on to the next test case
+      }
+    
+    // Expected output is 0 as a is not equals to b  
+    state.CMPEQ2:
+      a = 16b1111000110001111;
+      b = 16b1111000110001110;
+      expout = 16b0;
+      alufn = 6b110011;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+      state.d = state.CMPLT1; // Move on to the next test case
+      }
+    
+    // Expected output is 1 as a is less than b   
+    state.CMPLT1:
+      a = 16b1111000110001111;
+      b = 16b1111100110001111;
+      expout = 16b0000000000000001;
+      alufn = 6b110101;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+      state.d = state.CMPLT2; // Move on to the next test case
+      }
+        
+    // Expected output is 0 as a is more than b
+    state.CMPLT2:
+      a = 16b1111100110001111;
+      b = 16b1111000110001111;
+      expout = 16b0;
+      alufn = 6b110101;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+      state.d = state.CMPLT3; // Move on to the next test case
+      }
+    
+    // Expected output is 0 as a is equal to b
+    state.CMPLT3:
+      a = 16b1111000110001111;
+      b = 16b1111000110001111;
+      expout = 16b0;
+      alufn = 6b110101;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+      state.d = state.CMPLE1; // Move on to the next test case
+      }
+    
+    // Expected output is 1 as a is less than b
+    state.CMPLE1:
+      a = 16b1111000110001111;
+      b = 16b1111100110001111;
+      expout = 16b0000000000000001;
+      alufn = 6b110111;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+      state.d = state.CMPLE2; // Move on to the next test case
+      }
+    
+    // Expected output is 0 as a is more than b
+    state.CMPLE2:
+      a = 16b1111100110001111;
+      b = 16b1111000110001111;
+      expout = 16b0;
+      alufn = 6b110111;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+      state.d = state.CMPLE3; // Move on to the next test case
+      }
+    
+    // Expected output is 1 as a is equal to b
+    state.CMPLE3:
+      a = 16b1111000110001111;
+      b = 16b1111000110001111;
+      expout = 16b0000000000000001;
+      alufn = 6b110111;
+      state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+      if (next) {
+      state.d = state.MUL1; // Move on to the next test case
+      }
+        
+// multiplication of 16 bits by 16 bits that does not overflow, positive a multiplied by positive b
+      state.MUL1:
+        a = 16b0000000001110111; // input a = 119
+        b = 16b0000000001101010; // input b = 106
+        expout = 16b0011000101000110; // ans = 12614
+        alufn = 6b100010;
+        state_index = state_cout.out;
+      if (expout == actout) {
+        q = 1;
+      } else {
+        q = 0;
+      }
+        if (next) {
+          state.d = state.MUL2; // auto proceed to the next test state regardless
+        }
+        
+      // multiplication of 16 bits by 16 bits that does not overflow, negative a multiplied by negative b
+      state.MUL2:
+        a = 16b1111111111101000; // input a = -24
+        b = 16b1111111111100000; // input b = -32
+        expout = 16b0000001100000000; // ans = 768
+        alufn = 6b100010;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.MUL3; // auto proceed to the next test state regardless
+        }
+        
+      // multiplication of 16 bits by 16 bits that does not overflow, positive a multiplied by negative b
+      state.MUL3:
+        a = 16b0000000000011000; // input a = 24
+        b = 16b1111111111100000; // input b = -32
+        expout = 16b1111110100000000; // ans = -768
+        alufn = 6b100010;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.MUL4; // auto proceed to the next test state regardless
+        }
+        
+      // multiplication of 16 bits by 16 bits that overflows, only displaying the least significant 16 bits
+      state.MUL4:
+        a = 16b1011010010001101; // input a = -19315
+        b = 16b0100101110111100; // input b = 19388
+        expout = 16b1110011010001100; // ans = -6516
+        alufn = 6b100010;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.MUL5; // auto proceed to the next test state regardless
+        }
+        
+      // multiplication by 0
+      state.MUL5:
+        a = 16b1011010010001101; // input a = -19315
+        b = 16b0000000000000000; // input b = 0
+        expout = 16b0000000000000000; // ans = 0
+        alufn = 6b100010;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.MOD1; // auto proceed to the next test state regardless
+        }     
+        
+      // Checking whether 37 mod 5 = 2
+      state.MOD1:
+        a = 16b0000000000100101; // 37
+        b = 16b0000000000000101; // 5
+        expout = 16b0000000000000010; // expected = 2
+        alufn = 6b111111;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.MOD2; // auto proceed to the next test state regardless
+        }
+
+// Checking whether 37 mod 0 = 37
+      state.MOD2:
+        a = 16b0000000000100101; // 37
+        b = 16b0000000000000000; // 0
+        expout = 16b0000000000100101; // expected = 37
+        alufn = 6b111111;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state.MOD3;
+        }
+
+// Checking whether 0 mod 5 = 0
+      state.MOD3:
+        a = 16b0000000000000000; // 0
+        b = 16b0000000000000101; // 5
+        expout = 16b0000000000000000; // expected = 0
+        alufn = 6b111111;
+        state_index = state_cout.out;
+        if (expout == actout) {
+          q = 1;
+        } else {
+          q = 0;
+        }
+        if (next) {
+          state.d = state. IDLE;
+        }
+ 
+    }
+
+  }
+} 

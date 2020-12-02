@@ -1,0 +1,60 @@
+module alu_shift_add ( // convert A = XX11XXXXXXXXXXXX -> new A = 0000000000000011, then add new A to B
+    
+    // two 16 bit inputs to be multiplied together
+    input a[16],
+    input b[16],
+    input alufn[2],
+    
+    // one 16 bit output displaying the least significant 16 bits
+    output q[16]
+  )  {
+  alu_adder adder;
+  alu_shifter shifter[3];
+  
+  sig r[16];
+  sig s[16];
+  sig t[16];
+
+  always {        
+    //shift A to the left by 2 bits to clear bit 15 and bit 14
+    shifter.a[0] = a;
+    shifter.b[0] = d2;
+    shifter.alufn[0] = b00;
+    r = shifter.q[0];
+    
+    //shift r to the right by 14 bits
+    shifter.a[1] = r;
+    shifter.b[1] = d14;
+    shifter.alufn[1] = b01;
+    s = shifter.q[1];
+    
+    //shift s to the left by p bits
+    case (alufn[1:0]) {
+      b00:
+        t = s;  // don't need to shift
+      b01:
+        shifter.a[2] = s; // shift left by 2 bits
+        shifter.b[2] = d2;
+        shifter.alufn[2] = b00;
+        t = shifter.q[2];
+      b10:
+        shifter.a[2] = s; // shift left by 4 bits
+        shifter.b[2] = d4;
+        shifter.alufn[2] = b00;
+        t = shifter.q[2];
+      b11:
+        shifter.a[2] = s; // shift left by 6 bits
+        shifter.b[2] = d6;
+        shifter.alufn[2] = b00;
+        t = shifter.q[2];      
+      default:
+        t = s;
+    }
+
+    //q = s + b
+    adder.a = t;
+    adder.b = b;
+    adder.alufn0 = 0;
+    q = adder.q;
+  }
+}

@@ -1,0 +1,225 @@
+module au_top (
+    input clk,              // 100MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input usb_rx,           // USB->Serial input
+    output usb_tx,          // USB->Serial output
+    //output io_led [1][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_button [5],    // 5 buttons on IO Shield
+    //input io_dip [3][8],    // DIP switches on IO Shield
+    
+    // reset button
+    input reset_btn,
+    
+    //main fsm
+    input next_button,
+    
+    // basket fsm 
+    input move_left,
+    input move_right,
+    input change_colour,
+    output io_basket[8],
+    
+    // 7 seg
+    output io_seven_seg[8],
+    
+    // Columns
+    output io_col[4][12],
+    
+    // Life and Combo
+    output io_life[3],
+    output io_combo[3]
+    
+  ) {
+  
+  sig rst;                  // reset signal
+  sig randNum[3]; 
+  sig randColour;
+  
+  score_to_4_digits score_to_4_digits;
+  bin_to_led bin_to_led[2];
+  alu_ alu;
+  
+  .clk(clk) {
+    .rst(rst) {
+      basket_fsm basket_fsm;
+      regfile regfile;
+      main_fsm main_fsm;                
+      rand_gen random; // random number generator
+      rand_gen2 random2;
+      multi_seven_seg seg7;
+      
+    }
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+
+    // For reset
+    button_conditioner reset_buttoncond;
+    edge_detector reset_buttondetector(#RISE(1), #FALL(0));
+
+    
+    // For basket_fsm
+    
+    button_conditioner left_buttoncond;
+    edge_detector left_buttondetector(#RISE(1), #FALL(0));
+    button_conditioner right_buttoncond;
+    edge_detector right_buttondetector(#RISE(1), #FALL(0));
+    button_conditioner colour_buttoncond;
+    edge_detector colour_buttondetector(#RISE(1), #FALL(0));
+  
+    // main fsm test
+    button_conditioner next_buttoncond;
+    edge_detector next_buttondetector(#RISE(1), #FALL(0));
+    
+  }
+  
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    usb_tx = usb_rx;        // loop serial port
+    
+    led = 8h00;             // turn LEDs off
+    
+   // io_led = 3x{{8h00}};    // turn LEDs off
+    io_seg = 8hff;          // turn segments off
+    io_sel = 4hf;           // select no digits
+    
+
+
+
+    // Reset
+    reset_buttoncond.in = reset_btn;
+    reset_buttondetector.in = reset_buttoncond.out;
+    reset_cond.in = reset_buttondetector.out;
+    //rst = reset_buttondetector.out;         
+
+
+
+    // Combo and Life
+    bin_to_led.deci[0] = regfile.combo_data[1:0];
+    io_combo = bin_to_led.threebit[0];                // convert combo_data from decimal to binary to be displayed by LEDs
+    bin_to_led.deci[1] = regfile.life_data[1:0];
+    io_life = bin_to_led.threebit[1];                 // convert life_data from decimal to binary to be displayed by LEDs
+    
+    // Random Generator
+    
+    randNum = random.debug[2:0]; // random number
+    randColour = random2.debug[0];
+    
+    // 7 segment display that displays player score
+    
+    //score_to_4_digits.score = regfile.score_data;
+    //score_to_4_digits.score = basket_fsm.state;
+    //score_to_4_digits.score = main_fsm.state_index;
+    //score_to_4_digits.score = regfile.lastrow;
+    score_to_4_digits.score = regfile.score_data;
+    seg7.values = score_to_4_digits.digits;
+    io_sel = seg7.sel;
+    io_seven_seg[7:0] = seg7.seg;
+        
+    
+    // basket_fsm
+    
+    left_buttoncond.in = move_left;  // button that triggers move left
+    left_buttondetector.in = left_buttoncond.out;  // edge detector to ensure a single button press results in an output of 1 in 1 clk cycle only
+    right_buttoncond.in = move_right;  // button that triggers move right
+    right_buttondetector.in = right_buttoncond.out;
+    colour_buttoncond.in = change_colour;  // button that triggers move colour
+    colour_buttondetector.in = colour_buttoncond.out;
+    
+    basket_fsm.l = left_buttondetector.out;
+    basket_fsm.r = right_buttondetector.out;
+    basket_fsm.c = colour_buttondetector.out;
+    
+    io_basket = basket_fsm.q;
+    //io_basket = b11001001;
+    
+    // Column outputs
+    
+    io_col[0] = regfile.col_1[11:0];
+    io_col[1] = regfile.col_2[11:0];
+    io_col[2] = regfile.col_3[11:0];
+    io_col[3] = regfile.col_4[11:0];
+    
+    //io_col[0] = 16hFFFF;
+    //io_col[1] = 16hFFFF;
+    //io_col[2] = 16hFFFF;
+    //io_col[3] = 16hFFFF;
+    
+    // main_fsm
+    
+    main_fsm.rd2 = regfile.read_data_2;
+    
+    // test_fsm
+    
+    next_buttoncond.in = next_button;
+    next_buttondetector.in = next_buttoncond.out;
+    
+    main_fsm.next = next_buttondetector.out;
+    // io_led[0] = temp.q[7:0];
+    //io_led[1] = temp.q[15:8];
+    //io_led[2][5:0] = main_fsm.alufn;
+    
+    // regfile
+    
+    regfile.read_address_1 = main_fsm.ra;
+    regfile.read_address_2 = main_fsm.rb;
+    regfile.write_address = main_fsm.rc;
+    
+    regfile.write_enable = main_fsm.we;
+    regfile.write_data = alu.q;
+    
+    // alu
+    
+    alu.a = regfile.read_data_1;
+    alu.b = regfile.read_data_2;
+    alu.alufn = main_fsm.alufn;
+    
+    // asel
+    
+    case(main_fsm.asel) {
+      2b00: 
+        alu.a = regfile.read_data_1;   // ASEL = 00 => A input to ALU = RD1
+      2b01:
+        alu.a = 16b1;                  // ASEL = 01 => A input to ALU = 01
+      2b10:
+        alu.a = 16b0;                  // ASEL = 10 => A input to ALU = 0
+      2b11:
+        alu.a = randColour;
+      default:
+        alu.a = regfile.read_data_1;
+    
+    }
+   
+
+    // bsel
+    
+    case(main_fsm.bsel) {
+      3b000:
+        alu.b = regfile.read_data_2;  // BSEL = 00 => B input to ALU = RD2
+      3b001:
+        alu.b = b01;                // BSEL = 01 => B input to ALU = 1
+      3b010:
+        alu.b = b10;                // BSEL = 10 => B input to ALU = 2
+      3b011:
+        alu.b = b11;                // BSEL = 11 => B input to ALU = 3
+      3b100:
+        alu.b = b0;                 // BSEL = 100 => B input to ALU = 0
+      3b101:
+        alu.b = basket_fsm.q;         // BSEL = 101 => B input to ALU = basket_position
+      3b110:
+        //random number
+        alu.b = randNum;            // BSEL = 100 => B input to ALU = random
+      3b111:
+        alu.b = d20;                 // BSEL = 111 => B input to ALU = 20 (Might change to slow score increment
+      default:
+        alu.b = regfile.read_data_2;
+      
+    }
+    
+}
+    
